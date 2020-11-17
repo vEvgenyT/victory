@@ -1,11 +1,11 @@
-// $$\    $$\$$$$$$\  $$$$$$\$$$$$$$$\  $$$$$$\  $$$$$$$\$$\     $$\ 
+// $$\    $$\$$$$$$\  $$$$$$\$$$$$$$$\  $$$$$$\  $$$$$$$\$$\     $$\
 // $$ |   $$ \_$$  _|$$  __$$\__$$  __|$$  __$$\ $$  __$$\$$\   $$  |
-// $$ |   $$ | $$ |  $$ /  \__| $$ |   $$ /  $$ |$$ |  $$ \$$\ $$  / 
-// \$$\  $$  | $$ |  $$ |       $$ |   $$ |  $$ |$$$$$$$  |\$$$$  /  
-//  \$$\$$  /  $$ |  $$ |       $$ |   $$ |  $$ |$$  __$$<  \$$  /   
-//   \$$$  /   $$ |  $$ |  $$\  $$ |   $$ |  $$ |$$ |  $$ |  $$ |    
-// $$\\$  /  $$$$$$\ \$$$$$$  | $$ |    $$$$$$  |$$ |  $$ |  $$ |    
-// \__|\_/   \______| \______/  \__|    \______/ \__|  \__|  \__|    
+// $$ |   $$ | $$ |  $$ /  \__| $$ |   $$ /  $$ |$$ |  $$ \$$\ $$  /
+// \$$\  $$  | $$ |  $$ |       $$ |   $$ |  $$ |$$$$$$$  |\$$$$  /
+//  \$$\$$  /  $$ |  $$ |       $$ |   $$ |  $$ |$$  __$$<  \$$  /
+//   \$$$  /   $$ |  $$ |  $$\  $$ |   $$ |  $$ |$$ |  $$ |  $$ |
+// $$\\$  /  $$$$$$\ \$$$$$$  | $$ |    $$$$$$  |$$ |  $$ |  $$ |
+// \__|\_/   \______| \______/  \__|    \______/ \__|  \__|  \__|
 
 
 var gulp = require('gulp'),
@@ -15,9 +15,15 @@ var gulp = require('gulp'),
     csscomb = require('gulp-csscomb'), //сортировка стилей по алфавиту + форматирование
     prefixer = require('gulp-autoprefixer'), //добавляет вендроные префиксы
     postcss = require('gulp-postcss'),
+    uncss = require('postcss-uncss'), // удаление неиспользуемых стилей
+    gcmq = require('gulp-group-css-media-queries'), //сортировка медиа запросов
     cssnano = require('cssnano'), // сжатие css файлов
     clear = require('del'), // очистка папок
-    shorthand = require('gulp-shorthand'); //сокращение стилей для которых доступен shorthand
+    shorthand = require('gulp-shorthand'), //сокращение стилей для которых доступен shorthand
+    imagemin = require('gulp-imagemin'), // минификация изображений
+    imageminWebp = require('imagemin-webp'),//конвертация изображений в новый формат
+    htmlmin = require('gulp-htmlmin'),
+    extReplace = require("gulp-ext-replace");
 const gcc = require('google-closure-compiler').gulp(); // оптимизация и сжатие JS кода
 
 
@@ -34,11 +40,33 @@ var folder = [
 
 var path = {
     src: {
-        html: 'src/**/*.html',
-        css: 'src/**/*.css',
+        baseCss: [
+          'src/css/**/normalize.css',
+          'src/css/**/locomotive.css',
+          'src/css/**/fonts.css',
+          'src/css/**/color.css',
+          'src/css/**/style.css',
+        ],
+        indexCss: [
+          'src/**/index/**/header/**/*.css',
+          'src/**/index/**/title/**/*.css',
+          'src/**/index/**/footer/**/*.css',
+        ],
+        indexHtml: [
+          'src/**/head.html',
+          'src/**/header.html',
+          'src/**/title.html',
+          'src/**/footer.html',
+        ],
         js: 'src/**/*.js',
         img: 'src/img/**/*.*',
-        fonts: 'src/fonts/**/*.*',
+        imgWebpIn: [
+          // 'src/img/*.png',
+          // 'src/img/*.jpg',
+          'src/img/*.*'
+        ],
+        // imgWebpOut: 'src/img/',
+        fonts: 'src/fonts/**/*.*'
     },
     bundles: {
         html: 'bundles/',
@@ -56,6 +84,7 @@ var path = {
     },
     clean: 'bundles/**/*.*'
 };
+
 
 
 // Deploy //////////////////////////////////////////////////////////
@@ -85,12 +114,44 @@ gulp.task('/deploy', async function() {
 // -= ******************************************************** =- \\
 
 
+// DEL /////////////////////////////////////////////////////////////
+
+
+gulp.task('/del', function() {
+  return clear(['bundles/**/*.*']);
+});
+
+gulp.task('/delhtml', function() {
+  return clear(['bundles/**/*.html']);
+});
+
+gulp.task('/delcss', function() {
+  return clear(['bundles/css/**/*.*']);
+});
+
+gulp.task('/deljs', function() {
+  return clear(['bundles/js/**/*.*']);
+});
+
+gulp.task('/delimg', function() {
+  return clear(['bundles/img/**/*.*']);
+});
+
+gulp.task('/delfonts', function() {
+  return clear(['bundles/fonts/**/*.*']);
+});
+
+
+
 
 // HTML ////////////////////////////////////////////////////////////
 
-gulp.task('/html', async function() {
-    return gulp.src(['!src/**/_*.html', path.src.html])
-    .pipe(gulp.dest(path.bundles.html));
+gulp.task('/indexHtml', ['/delhtml'], async function() {
+return gulp.src(path.src.indexHtml)
+  // .pipe(htmlmin({ collapseWhitespace: false }))
+  // .pipe(htmlmin({ removeComments: false }))
+  .pipe(concat('index.html'))
+  .pipe(gulp.dest(path.bundles.html));
 });
 
 // -= ******************************************************** =- \\
@@ -99,21 +160,30 @@ gulp.task('/html', async function() {
 
 // CSS /////////////////////////////////////////////////////////////
 
-gulp.task('/css', async function() {
+gulp.task('/baseCss', ['/delcss'], function() {
     var processors = [
     cssnano(),
   ];
-  return gulp.src(path.src.css)
-    .pipe(order([
-    "**/*reset*.css",
-    "**/*normalize*.css",
-    "**/*style*.css",
-    "**/*media*.css"
-  ], { base: './' }))
+  return gulp.src(path.src.baseCss)
     .pipe(concat('style.css'))
     .pipe(shorthand())
     .pipe(prefixer())
     .pipe(csscomb())
+    .pipe(gcmq())
+    .pipe(postcss(processors))
+    .pipe(gulp.dest(path.bundles.css));
+});
+
+gulp.task('/indexCss', function() {
+    var processors = [
+    cssnano(),
+  ];
+  return gulp.src(path.src.indexCss)
+    .pipe(concat('index.css'))
+    .pipe(shorthand())
+    .pipe(prefixer())
+    .pipe(csscomb())
+    .pipe(gcmq())
     .pipe(postcss(processors))
     .pipe(gulp.dest(path.bundles.css));
 });
@@ -124,27 +194,35 @@ gulp.task('/css', async function() {
 
 // JS //////////////////////////////////////////////////////////////
 
-gulp.task('/js', async function() {
+// gulp.task('/js', async function() {
+//     return gulp.src(path.src.js)
+//     .pipe(order([
+//     "**/*jquery*.js",
+//     "**/*lib*.js",
+//     "**/*module*.js",
+//     "**/*.js"
+//   ], { base: './' }))
+//     .pipe(concat('index.js'))
+//     .pipe(gcc({
+//           compilation_level: 'ADVANCED',
+//           warning_level: 'VERBOSE',
+//           language_in: 'ECMASCRIPT6_STRICT',
+//           language_out: 'ECMASCRIPT5_STRICT',
+//           output_wrapper: '(function(){\n%output%\n}).call(this)',
+//           js_output_file: 'index.min.js'
+//         }, {
+//           platform: ['native', 'java', 'javascript']
+//         }))
+//     .pipe(gulp.dest(path.bundles.js));
+// });
+
+
+gulp.task('/js', ['/deljs'], async function() {
     return gulp.src(path.src.js)
-    .pipe(order([
-    "**/*jquery*.js",
-    "**/*lib*.js",
-    "**/*module*.js",
-    "**/*.js"
-  ], { base: './' }))
-    .pipe(concat('index.js'))
-    .pipe(gcc({
-          compilation_level: 'ADVANCED',
-          warning_level: 'VERBOSE',
-          language_in: 'ECMASCRIPT6_STRICT',
-          language_out: 'ECMASCRIPT5_STRICT',
-          output_wrapper: '(function(){\n%output%\n}).call(this)',
-          js_output_file: 'index.min.js'
-        }, {
-          platform: ['native', 'java', 'javascript']
-        }))
+    .pipe(concat('index.min.js'))
     .pipe(gulp.dest(path.bundles.js));
 });
+
 
 // -= ******************************************************** =- \\
 
@@ -204,11 +282,26 @@ gulp.task('/run', ['/browser-sync'], function() {
     gulp.watch(path.watch.img, browserSync.reload);
 });
 
+gulp.task('/runIndex', ['/browser-sync'], function() {
+    gulp.watch(path.watch.html, ['/indexHtml'])
+    gulp.watch(path.watch.html, browserSync.reload);
+    gulp.watch(path.watch.css, ['/baseCss', '/indexCss'])
+    gulp.watch(path.watch.css, browserSync.reload);
+    gulp.watch(path.watch.js, ['/js'])
+    gulp.watch(path.watch.js, browserSync.reload);
+    gulp.watch(path.watch.fonts, ['/fonts'])
+    gulp.watch(path.watch.fonts, browserSync.reload);
+    gulp.watch(path.watch.img, ['/img'])
+    gulp.watch(path.watch.img, browserSync.reload);
+});
+
 // -= ******************************************************** =- \\
 
 
 gulp.task('/compile', ['/css', '/js', '/html', '/img', '/fonts']);
 gulp.task('/interpret', ['/css', '/js', '/html', '/img', '/fonts', '/run']);
+
+gulp.task('/index', ['/runIndex', '/indexHtml', '/js', '/baseCss', '/indexCss', '/img', '/fonts']);
 
 
 // HELP ///////////////////////////////////////////////////////////

@@ -1,0 +1,13 @@
+:root {
+  --grey20: #EBEBEB;
+  --grey30: #C1C1C1;
+  --grey35: #B2B2B2;
+  --grey50: #717171;
+  --grey80: #202020;
+  --blue45: #3462EE;
+  --red40: #F15B5B;
+}
+
+.html_color {
+  background-color: var(--grey80);
+}

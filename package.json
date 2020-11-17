@@ -1,10 +1,11 @@
 {
   "name": "victory",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "victory's builder",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp /index"
   },
   "homepage": "https://github.com/vEvgenyT/victory",
   "repository": {
@@ -16,15 +17,23 @@
   "devDependencies": {
     "browser-sync": "^2.26.3",
     "cssnano": "^4.1.10",
+    "del": "^4.1.1",
     "google-closure-compiler": "^20190301.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-csscomb": "^3.0.8",
+    "gulp-ext-replace": "^0.3.0",
+    "gulp-fontgen": "^0.2.5",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^7.1.0",
     "gulp-order": "^1.2.0",
     "gulp-postcss": "^8.0.0",
-    "del": "^4.1.1",
-    "gulp-shorthand": "^1.1.0"
+    "gulp-shorthand": "^1.1.0",
+    "imagemin-webp": "^6.0.0",
+    "postcss-uncss": "^0.17.0",
+    "uncss": "^0.17.3"
   },
   "browserslist": [
     "> 0.3%",
@@ -33,5 +42,8 @@
   ],
   "bugs": {
     "url": "https://github.com/vEvgenyT/victory/issues"
+  },
+  "dependencies": {
+    "save-dev": "0.0.1-security"
   }
 }

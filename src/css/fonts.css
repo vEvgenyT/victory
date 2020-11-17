@@ -1,0 +1,104 @@
+/*! VICTORY | web design & development / hello@victory.net.ua */
+
+@charset "UTF-8";
+
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/woff2/Manrope-ExtraBold.woff2") format("woff2"),
+       url("/fonts/woff/Manrope-ExtraBold.woff") format("woff"),
+       url("/fonts/ttf/Manrope-ExtraBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 800;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/woff2/Manrope-Medium.woff2") format("woff2"),
+       url("/fonts/woff/Manrope-Medium.woff") format("woff"),
+       url("/fonts/ttf/Manrope-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+}
+
+
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/woff2/Manrope-Regular.woff2") format("woff2"),
+       url("/fonts/woff/Manrope-Regular.woff") format("woff"),
+       url("/fonts/ttf/Manrope-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+}
+
+
+.h1 {
+  font-family: Manrope, -apple-system,BlinkMacSystemFont,Roboto,'Helvetica Neue',sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+}
+
+.h2 {
+  font-family: Manrope, -apple-system,BlinkMacSystemFont,Roboto,'Helvetica Neue',sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 125%;
+  letter-spacing: -0.03em;
+}
+
+.h3 {
+  font-family: Manrope, -apple-system,BlinkMacSystemFont,Roboto,'Helvetica Neue',sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: 0.01em;
+}
+
+.p {
+  font-family: Manrope, -apple-system,BlinkMacSystemFont,Roboto,'Helvetica Neue',sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 166.7%;
+  letter-spacing: 0.01em;
+}
+
+.a {
+  font-family: Manrope, -apple-system,BlinkMacSystemFont,Roboto,'Helvetica Neue',sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 100%;
+text-align: center;
+letter-spacing: 0.03em;
+}
+
+.nav {
+  font-family: Manrope, -apple-system,BlinkMacSystemFont,Roboto,'Helvetica Neue',sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 140%;
+  letter-spacing: -0.005em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
