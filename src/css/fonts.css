@@ -39,54 +39,90 @@
   font-style: normal;
   font-weight: 800;
   font-size: 50px;
+  /*font-size: 10rem;*/
   line-height: 100%;
   letter-spacing: -0.04em;
+}
+@media only screen and (min-width: 745px) {
+  .h1 {
+    font-size: 75px;
+  }
+}
+@media only screen and (min-width: 1105px) {
+  .h1 {
+    font-size: 100px;
+  }
 }
 
 .h2 {
   font-family: Manrope, -apple-system,BlinkMacSystemFont,Roboto,'Helvetica Neue',sans-serif;
   font-style: normal;
   font-weight: normal;
+  /*font-size: 4rem;*/
   font-size: 20px;
   line-height: 125%;
   letter-spacing: -0.03em;
+}
+@media only screen and (min-width: 745px) {
+  .h2 {
+    font-size: 35px;
+    line-height: 142%;
+    letter-spacing: -0.03em;
+  }
 }
 
 .h3 {
   font-family: Manrope, -apple-system,BlinkMacSystemFont,Roboto,'Helvetica Neue',sans-serif;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
+  /*font-size: 4rem;*/
   font-size: 20px;
   line-height: 140%;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.03em;
+}
+@media only screen and (min-width: 745px) {
+  .h3  {
+    font-size: 25px;
+  }
 }
 
 .p {
   font-family: Manrope, -apple-system,BlinkMacSystemFont,Roboto,'Helvetica Neue',sans-serif;
   font-style: normal;
   font-weight: normal;
+  /*font-size: 2.6rem;*/
   font-size: 13px;
   line-height: 166.7%;
   letter-spacing: 0.01em;
+}
+@media only screen and (min-width: 745px) {
+  .p {
+    line-height: 192.3%;
+    letter-spacing: 0.02em;
+  }
 }
 
 .a {
   font-family: Manrope, -apple-system,BlinkMacSystemFont,Roboto,'Helvetica Neue',sans-serif;
 font-style: normal;
 font-weight: 400;
+/*font-size: 3rem;*/
 font-size: 15px;
 line-height: 100%;
 text-align: center;
 letter-spacing: 0.03em;
+text-decoration: none;
 }
 
 .nav {
   font-family: Manrope, -apple-system,BlinkMacSystemFont,Roboto,'Helvetica Neue',sans-serif;
   font-style: normal;
   font-weight: normal;
+  /*font-size: 3rem;*/
   font-size: 15px;
   line-height: 140%;
   letter-spacing: -0.005em;
+  text-decoration: none;
 }
 
 

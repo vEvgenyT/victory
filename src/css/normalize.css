@@ -347,3 +347,25 @@ template {
 [hidden] {
   display: none;
 }
+
+/*html {
+  font-size: 1.5625vw;
+}
+@media only screen and (min-width: 745px) {
+  html {
+  font-size: 0.67114094vw;
+}
+}
+@media only screen and (min-width: 1105px) {
+  html {
+  font-size: 0.45248869vw;
+}
+}*/
+figure {
+  margin: 0;
+  padding: 0;
+}
+ul, li {
+  margin: 0;
+  padding: 0;
+}

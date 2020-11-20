@@ -11,12 +11,12 @@
 .wrapper {
   max-width: 745px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 25px;
 }
 @media only screen and (min-width: 745px) {
   .wrapper {
     max-width: 1105px;
-    padding: 0 5rem;
+    padding: 0 25px;
   }
 }
 
@@ -40,12 +40,28 @@
 
 
 
+
+.noise {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+    opacity: .05;
+}
+
+
 /*---------------------HEADER-------------------*/
 
 .header {
   display: flex;
   justify-content: space-between;
-  margin: 15px 0 0 0;
+  align-items: center;
+  margin: 15px 0 100px 0;
 }
 
 .header_style {}
@@ -55,20 +71,81 @@
 .header__img {
 }
 .header__img_style {}
-.header__img_size {}
+.header__img_size {
+  height: 100%;
+}
 .header__img_position {}
 
 .header__nav {
 }
-.header__nav_style {}
+.header__nav_style {
+  color: var(--grey30);
+  list-style-type: none;
+}
+.header__nav_style-animation:hover {
+  background: linear-gradient(-60deg, #F15B5B, #09C6F9, #3462EE, #F15B5B);
+}
+.header__nav_style-animation:hover {
+  background-size: 300%;
+  animation: flow 6s ease-in-out infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.header__nav_style-arrow {
+  background-image   : url('../img/chevron.svg');
+  background-position: right;
+  background-repeat  : no-repeat;
+  padding: 0 20px 0 8px;
+}
+.header__lng:hover .header__nav_style-arrow {
+  transition: .05s cubic-bezier(.4,0,0,1);
+  color: var(--grey90);
+  background-image   : url('../img/chevron-black.svg');
+  background-repeat  : no-repeat;
+    background-position: right;
+}
 .header__nav_size {}
 .header__nav_position {}
 
+
+
+
+
+
 .header__lng {
+  padding: 5px 0;
 }
-.header__lng_style {}
-.header__lng_size {}
-.header__lng_position {}
+.header__lng_style {
+  padding: 8px 18px;
+  border-radius: 8px;
+  background: var(--grey90);
+}
+.header__lng_size {
+  margin: 0 0 10px 0;
+}
+.header__lng_position {
+  position: absolute;
+  top: -200vh;
+}
+.header__lng:hover .header__lng_position {
+  top: 50px;
+}
 
 
 
