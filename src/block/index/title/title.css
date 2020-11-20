@@ -93,15 +93,25 @@
 .index-title__scroll {
   grid-area: arrow;
 }
-.index-title__scroll_style {}
-.index-title__scroll_size {}
-.index-title__scroll_position {}
-
+.index-title__scroll_style {
+  border: 2px solid var(--grey50);
+  border-radius: 50%;
+}
+.index-title__scroll_size {
+  height: 100px;
+  width: 100px;
+}
+.index-title__scroll_position {
+  position: absolute;
+  left: 46%;
+  bottom: 35px;
+}
+.index-title__scroll-arrow_position {
+  padding: 33%;
+}
 
 
 
 .index-title__controls {
-  grid-area: controls;
-  display: flex;
-  justify-content: space-between;
+
 }

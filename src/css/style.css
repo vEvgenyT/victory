@@ -47,11 +47,11 @@
     top: 0;
     left: 0;
 
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 
     pointer-events: none;
-    opacity: .05;
+    opacity: .125;
 }
 
 
@@ -72,7 +72,8 @@
 }
 .header__img_style {}
 .header__img_size {
-  height: 100%;
+  height: 30px;
+  /*width: 100%;*/
 }
 .header__img_position {}
 
@@ -118,7 +119,8 @@
   color: var(--grey90);
   background-image   : url('../img/chevron-black.svg');
   background-repeat  : no-repeat;
-    background-position: right;
+  background-position: right;
+  transform: rotateY(90deg);
 }
 .header__nav_size {}
 .header__nav_position {}
@@ -144,7 +146,7 @@
   top: -200vh;
 }
 .header__lng:hover .header__lng_position {
-  top: 50px;
+  top: 45px;
 }
 
 

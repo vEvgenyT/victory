@@ -40,7 +40,7 @@
   font-weight: 800;
   font-size: 50px;
   /*font-size: 10rem;*/
-  line-height: 100%;
+  line-height: 95%;
   letter-spacing: -0.04em;
 }
 @media only screen and (min-width: 745px) {
@@ -78,11 +78,11 @@
   /*font-size: 4rem;*/
   font-size: 20px;
   line-height: 140%;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.035em;
 }
 @media only screen and (min-width: 745px) {
   .h3  {
-    font-size: 25px;
+    /*font-size: 25px;*/
   }
 }
 
@@ -98,7 +98,7 @@
 @media only screen and (min-width: 745px) {
   .p {
     line-height: 192.3%;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.035em;
   }
 }
 
@@ -119,9 +119,9 @@ text-decoration: none;
   font-style: normal;
   font-weight: normal;
   /*font-size: 3rem;*/
-  font-size: 15px;
+  font-size: 12px;
   line-height: 140%;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em;
   text-decoration: none;
 }
 
