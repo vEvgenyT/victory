@@ -18,7 +18,7 @@
                           'title title title title title title title title title . . .'
                           'paragraph paragraph paragraph paragraph . . . . . . . .'
                           /*'. . . . . . tabletImg tabletImg tabletImg tabletImg tabletImg tabletImg'*/
-                          '. . controls controls controls . . . . . . .';
+                          '. . . . . arrow arrow . . . . contacts';
 }
 }
 
@@ -92,6 +92,8 @@
 
 .index-title__scroll {
   grid-area: arrow;
+  /*align-self: center;*/
+  justify-self: center;
 }
 .index-title__scroll_style {
   border: 2px solid var(--grey50);
@@ -102,9 +104,9 @@
   width: 100px;
 }
 .index-title__scroll_position {
-  position: absolute;
-  left: 46%;
-  bottom: 35px;
+  /*position: absolute;*/
+  /*left: 46%;*/
+  /*bottom: 35px;*/
 }
 .index-title__scroll-arrow_position {
   padding: 33%;
@@ -112,6 +114,31 @@
 
 
 
-.index-title__controls {
-
+.index-title__contacts {}
+.index-title__contacts_style {
+  border: 2px solid var(--grey50);
+  border-radius: 50%;
+  color: var(--grey50);
 }
+.index-title__contacts_size {
+  width: 100px;
+  height: 100px;
+  line-height: 20px;
+  text-align: center;
+}
+.index-title__contacts_position {
+  grid-area: contacts;
+}
+.index-title__contacts-arrow {
+  position: relative;
+  right: 85px;
+  top: 28px;
+}
+
+
+
+
+
+
+
+
