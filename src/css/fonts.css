@@ -40,8 +40,8 @@
   font-weight: 800;
   font-size: 50px;
   /*font-size: 10rem;*/
-  line-height: 95%;
-  letter-spacing: -0.04em;
+  line-height: 90%;
+  letter-spacing: -0.055em;
 }
 @media only screen and (min-width: 745px) {
   .h1 {
