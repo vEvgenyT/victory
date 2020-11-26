@@ -1,0 +1,21 @@
+.index-folio__figure {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (min-width: 745px) {
+  .index-folio__figure {
+    justify-content: space-between;
+  }
+}
+
+.index-folio__img_size {
+  max-width: 100%;
+  height: auto;;
+}
+@media only screen and (min-width: 1105px) {
+  .index-folio__img_size {
+    max-width: 240px;
+  }
+}
