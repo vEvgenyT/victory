@@ -1,0 +1,15 @@
+.index-mission__title {
+  grid-area: title;
+}
+.index-mission__title_size {}
+.index-mission__title_style-1 {
+  background: linear-gradient(265deg, #F15B5B 20%, #3462ee 100%);
+  text-align: center;
+}
+.index-mission__title_style-2 {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.index-mission__title_position {
+  margin: 0 0 50px -7px;
+}
