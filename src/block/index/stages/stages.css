@@ -1,0 +1,30 @@
+.index-stages__title {
+  grid-area: title;
+}
+.index-stages__title_size {}
+.index-stages__title_style-1 {
+  background: linear-gradient(265deg, #F15B5B 20%, #3462ee 100%);
+}
+.index-stages__title_style-2 {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.index-stages__title_position {
+  margin: 0 0 50px -7px;
+}
+
+
+.index-stages__subtitle {
+  grid-area: subtitle;
+}
+.index-stages__subtitle_size {}
+.index-stages__subtitle_style {}
+.index-stages__subtitle_position {}
+
+
+.index-stages__item {
+  grid-area: item;
+}
+.index-stages__item_size {}
+.index-stages__item_style {}
+.index-stages__item_position {}
