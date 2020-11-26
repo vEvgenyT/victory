@@ -3,6 +3,7 @@
                         'title title title title'
                         'paragraph paragraph paragraph paragraph'
                         'controls controls controls .';
+  margin: 140px 0 0 0;
 }
 @media only screen and (min-width: 745px) {
   .index-title {
@@ -17,7 +18,6 @@
     grid-template-areas:  'tag tag tag . . . . . . . . .'
                           'title title title title title title title title title . . .'
                           'paragraph paragraph paragraph paragraph . . . . . . . .'
-                          /*'. . . . . . tabletImg tabletImg tabletImg tabletImg tabletImg tabletImg'*/
                           '. contacts . . . arrow arrow . . . . .';
 }
 }
@@ -96,7 +96,7 @@
   justify-self: center;
 }
 .index-title__scroll_style {
-  border: 2px solid var(--grey50);
+  border: 1px solid var(--grey50);
   border-radius: 50%;
 }
 .index-title__scroll_size {
@@ -116,7 +116,7 @@
 
 .index-title__contacts {}
 .index-title__contacts_style {
-  border: 2px solid var(--grey50);
+  border: 1px solid var(--grey50);
   border-radius: 50%;
   color: var(--grey50);
 }
@@ -127,7 +127,11 @@
   text-align: center;
 }
 .index-title__contacts_position {
-  grid-area: contacts;
+  /*grid-area: contacts;*/
+  position: absolute;
+  right: 0;
+  top: 80vh;
+  margin: 0 0 100px 0;
 }
 .index-title__contacts-arrow {
   position: relative;

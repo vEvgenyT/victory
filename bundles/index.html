@@ -10,11 +10,11 @@
 
 <body class="wrapper">
   <canvas id="noise" class="noise"></canvas>
-  <header class="header">
-
+  <header class="header_position">
+    <div class="header header_size">
 
     <a href="#" class="header__img_size">
-      <img src="img/logo.svg" alt="#" class="header__img_size">
+      <img src="img/desktop/logo.svg" alt="#" class="header__img_size">
     </a>
 
     <ul class="header__lng">
@@ -29,9 +29,20 @@
 
     <nav class="header__nav">
       <ul>
-        <li class="header__nav_style"><a href="#" class="nav header__nav_style header__nav_style-animation">Обо мне</a></li>
+        <li class="header__nav_style">
+          <!-- <a href="#" class="nav header__nav_style header__nav_style-animation">Обо мне</a> -->
+          <a href="#" class="nav nav-lnk_style nav-lnk_size nav-lnk_position">
+            <span>Обо мне</span>
+            <span class="nav-lnk__line_style nav-lnk__line_size nav-lnk__line_position"></span>
+          </a>
+        </li>
+        <li>
+            <a href="#" class="a index-title__contacts_style index-title__contacts_size index-title__contacts_position"><img src="img/arrow-2.svg" alt="#" class="index-title__contacts-arrow">Контакты</a>
+        </li>
       </ul>
     </nav>
+
+</div>
 
 
   </header>
@@ -68,31 +79,30 @@
 
   <!-- </div> -->
 
-  <a href="#" class="a index-title__contacts_style index-title__contacts_size index-title__contacts_position"><img src="img/arrow-2.svg" alt="#" class="index-title__contacts-arrow">
-  Написать</a>
+<!--   <a href="#" class="a index-title__contacts_style index-title__contacts_size index-title__contacts_position"><img src="img/arrow-2.svg" alt="#" class="index-title__contacts-arrow">
+  Написать</a> -->
 
 
 </section>
 
     </article>
   </main>
-  <footer>
-    <!-- <h3>Больше чем вы ожидаете</h3>
-
-    <ul>
-      <ul>
+  <footer class="wrapper grid footer">
+    <h3 class="footer__title">Больше чем вы ожидаете</h3>
+    <ul class="footer__contacts">
+      <ul class="footer__lnk-social">
         <li><a href="#">Behance</a></li>
         <li><a href="#">Instagram</a></li>
         <li><a href="#">Twitter</a></li>
         <li><a href="#">LinkedIn</a></li>
       </ul>
-      <ul>
+      <ul class="footer__lnk-chat">
         <li><a href="#">Viber</a></li>
         <li><a href="#">Telegram</a></li>
         <li><a href="#">What's App</a></li>
         <li><a href="#">hello@victory.net.ua</a></li>
       </ul>
-    </ul> -->
+    </ul>
   </footer>
   <script type="text/javascript" src="js/index.min.js"></script>
 </body>
