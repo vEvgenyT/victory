@@ -11,11 +11,60 @@
 }
 
 .index-folio__img_size {
-  max-width: 100%;
-  height: auto;;
+  max-height: 300px;
+  margin: 20px;
 }
 @media only screen and (min-width: 1105px) {
   .index-folio__img_size {
-    max-width: 240px;
+    max-height: 375px;
+    max-width: 375px;
+    margin: 35px 0;
   }
+}
+
+
+.index-folio__contacts:first-child {
+  grid-area: ig;
+}
+.index-folio__contacts:last-child {
+  grid-area: be;
+}
+.index-folio__lnk {
+  grid-template-areas: 'ig line line be . . . . . . .'
+}
+.index-folio__contacts_style {
+  border: 1px solid var(--grey50);
+  border-radius: 50%;
+  color: var(--grey50);
+}
+.index-folio__contacts_size {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+
+}
+.index-folio__contacts_position {
+  /*grid-area: contacts;*/
+  /*position: absolute;*/
+  /*right: 0;*/
+  /*top: 80vh;*/
+  /*margin: 0 0 100px 0;*/
+}
+.index-folio__contacts-arrow {
+  position: relative;
+  right: 85px;
+  top: 28px;
+}
+
+
+
+
+
+.follow {
+  color: var(--grey35);
+  grid-area: line;
+  line-height: 100px;
+  margin: 0 auto;
+  padding: 0 0 0 30px;
 }

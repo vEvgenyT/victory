@@ -60,10 +60,10 @@ var path = {
           'src/**/head.html',
           'src/**/header.html',
           'src/**/title.html',
-          // 'src/**/portfolio.html',
-          // 'src/**/service.html',
-          // 'src/**/mission.html',
-          // 'src/**/stages.html',
+          'src/**/portfolio.html',
+          'src/**/service.html',
+          'src/**/mission.html',
+          'src/**/stages.html',
           'src/**/footer.html',
         ],
         js: 'src/**/*.js',
@@ -249,10 +249,28 @@ gulp.task('/fonts', async function() {
 
 // IMAGE ///////////////////////////////////////////////////////////
 
-gulp.task('/img', async function() {
+gulp.task('/imgCopy', async function() {
     return gulp.src(path.src.img)
     .pipe(gulp.dest(path.bundles.img));
 });
+
+gulp.task('/img', ['/delimg'], async function() {
+    return gulp.src(path.src.img)
+    .pipe(imagemin())
+    .pipe(gulp.dest(path.bundles.img));
+});
+
+gulp.task('/webp', async function() {
+    return gulp.src(path.src.img)
+    .pipe(imagemin([
+      imageminWebp({
+        quality: 90
+      })
+    ]))
+    .pipe(extReplace(".webp"))
+    .pipe(gulp.dest(path.bundles.img));
+});
+
 
 // -= ******************************************************** =- \\
 
@@ -309,7 +327,7 @@ gulp.task('/runIndex', ['/browser-sync'], function() {
 gulp.task('/compile', ['/css', '/js', '/html', '/img', '/fonts']);
 gulp.task('/interpret', ['/css', '/js', '/html', '/img', '/fonts', '/run']);
 
-gulp.task('/index', ['/runIndex', '/indexHtml', '/js', '/baseCss', '/indexCss', '/img', '/fonts']);
+gulp.task('/index', ['/runIndex', '/indexHtml', '/js', '/baseCss', '/indexCss', '/imgCopy', '/fonts']);
 
 
 // HELP ///////////////////////////////////////////////////////////
