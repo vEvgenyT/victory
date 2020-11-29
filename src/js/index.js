@@ -7,106 +7,98 @@ console.log ( '%ccreated by VICTORY in Ukraine #MRPL', 'padding: 1px;background-
 
 // ---------------------- NOISE ---------------------- \\
 
-
 const noise = () => {
-  let canvas, ctx;
+    let canvas, ctx;
 
-  let wWidth, wHeight;
+    let wWidth, wHeight;
 
-  let noiseData = [];
-  let frame = 0;
+    let noiseData = [];
+    let frame = 0;
 
-  let loopTimeout;
-
-
-  // Create Noise
-  const createNoise = () => {
-      const idata = ctx.createImageData(wWidth, wHeight);
-      const buffer32 = new Uint32Array(idata.data.buffer);
-      const len = buffer32.length;
-
-      for (let i = 0; i < len; i++) {
-          if (Math.random() < 0.5) {
-              buffer32[i] = 0xff808080;
-          }
-      }
-
-      noiseData.push(idata);
-  };
+    let loopTimeout;
 
 
-  // Play Noise
-  const paintNoise = () => {
-      if (frame === 9) {
-          frame = 0;
-      } else {
-          frame++;
-      }
+    // Create Noise
+    const createNoise = () => {
+        const idata = ctx.createImageData(wWidth, wHeight);
+        const buffer32 = new Uint32Array(idata.data.buffer);
+        const len = buffer32.length;
 
-      ctx.putImageData(noiseData[frame], 0, 0);
-  };
+        for (let i = 0; i < len; i++) {
+            if (Math.random() < 0.5) {
+                buffer32[i] = 0xff717171;
+            }
+        }
 
-
-  // Loop
-  const loop = () => {
-      paintNoise(frame);
-
-      loopTimeout = window.setTimeout(() => {
-          window.requestAnimationFrame(loop);
-      }, (1000 / 25));
-  };
+        noiseData.push(idata);
+    };
 
 
-  // Setup
-  const setup = () => {
-      wWidth = window.innerWidth;
-      wHeight = window.innerHeight;
+    // Play Noise
+    const paintNoise = () => {
+        if (frame === 9) {
+            frame = 0;
+        } else {
+            frame++;
+        }
 
-      canvas.width = wWidth;
-      canvas.height = wHeight;
-
-      for (let i = 0; i < 10; i++) {
-          createNoise();
-      }
-
-      loop();
-  };
+        ctx.putImageData(noiseData[frame], 0, 0);
+    };
 
 
-function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+    // Loop
+    const loop = () => {
+        paintNoise(frame);
 
-            /**
-             * Your drawings need to be inside this function otherwise they will be reset when
-             * you resize the browser window and the canvas goes will be cleared.
-             */
-
-
-  // Reset
-  let resizeThrottle;
-  const reset = () => {
-      // window.addEventListener('resize', () => {
-      //     window.clearTimeout(resizeThrottle);
-
-          window.addEventListener('resize', () => {
-          window.clearTimeout(resizeCanvas);
-
-          resizeThrottle = window.setTimeout(() => {
-              window.clearTimeout(loopTimeout);
-              setup();
-          }, 200);
-      }, false);
-  };
+        loopTimeout = window.setTimeout(() => {
+            window.requestAnimationFrame(loop);
+        }, (1000 / 15));
+    };
 
 
-  // Init
-  const init = (() => {
-      canvas = document.getElementById('noise');
-      ctx = canvas.getContext('2d');
+    // Setup
+    const setup = () => {
+        wWidth = window.innerWidth;
+        // wHeight = window.innerHeight;
+        wHeight = document.querySelector('html').getBoundingClientRect().height;
 
-      setup();
-  })();
+        canvas.width = wWidth;
+        canvas.height = wHeight;
+
+        for (let i = 0; i < 10; i++) {
+            createNoise();
+        }
+
+        loop();
+    };
+
+
+    // Reset
+    let resizeThrottle;
+    const reset = () => {
+        window.addEventListener('resize', () => {
+            window.clearTimeout(resizeThrottle);
+
+            resizeThrottle = window.setTimeout(() => {
+                window.clearTimeout(loopTimeout);
+                setup();
+            }, 200);
+        }, false);
+    };
+
+
+    // Init
+    const init = (() => {
+        canvas = document.querySelector('#noise');
+        ctx = canvas.getContext('2d');
+
+        setup();
+    })();
 };
 
-noise();
+// noise();
+
+window.onload = function() {
+  noise();
+}
+

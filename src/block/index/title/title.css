@@ -2,7 +2,6 @@
   grid-template-areas:  'tag tag tag .'
                         'title title title title'
                         'paragraph paragraph paragraph .';
-  margin: 140px 0 0 0;
 }
 @media only screen and (min-width: 745px) {
   .index-title {
@@ -30,7 +29,7 @@
 }
 .index-title__tag_size {}
 .index-title__tag_position {
-  margin: 0 0 25px 0;
+  margin: 0 0 50px 0;
 }
 
 .index-title__h1 {
@@ -45,7 +44,7 @@
 }
 .index-title__h1_size {}
 .index-title__h1_position {
-  margin: 0 0 50px -7px;
+  margin: 0 0 25px -7px;
 }
 
 

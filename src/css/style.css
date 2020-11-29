@@ -42,28 +42,33 @@
   }
 }
 
-
 .noise {
     z-index: 100;
     position: absolute;
     top: 0;
     left: 0;
-    /*bottom: 0;*/
-    /*right: 0;*/
-
-    /*width: 100%;*/
-
+    width: 100%;
+    /*height: 100%;*/
     pointer-events: none;
-    opacity: .125;
-    /*display: block;*/
+    opacity: .115;
 }
+
 
 .block-gap_size {
   margin: 50px 0 75px 0;
 }
+.block-gap-title_size {
+  margin: 100px 0 75px 0;
+}
+.block-gap-footer_size {
+  margin: 0 0 25px 0;
+}
 @media only screen and (min-width: 745px) {
   .block-gap_size {
-    margin: 100px 0 225px 0;
+    margin: 0 0 225px 0;
+  }
+  .block-gap-title_size {
+    margin: 140px 0 225px 0;
   }
 }
 
@@ -89,7 +94,7 @@
 }
 @media only screen and (min-width: 1105px) {
   .header_size {
-    width: 1055px;
+    width: 1105px;
     margin: 0 auto;
   }
 }
@@ -173,7 +178,7 @@
   top: -200vh;
 }
 .header__lng:hover .header__lng_position {
-  top: 45px;
+  top: 25px;
 }
 
 
@@ -266,16 +271,18 @@
 
 .footer {
   grid-template-areas:  'title title title title'
-                        'contacts contacts contacts contacts';
+                        'contacts contacts contacts contacts'
+                        '. . . .'
+                        '. place place .';
 }
-/* @media only screen and (min-width: 745px) {
+ @media only screen and (min-width: 745px) {
   .footer {
-    grid-template-areas:  'title title title title title title title .'
-                          ''
-                          ''
-                          '';
+    grid-template-areas:  'title title title title contacts contacts contacts contacts'
+                          '. . . . . . . .'
+                          '. . . . . . . .'
+                          '. . . place place . . .';
   }
-} */
+}
 @media only screen and (min-width: 1105px) {
   .footer {
     grid-template-areas:  'title title title title title . . contacts contacts contacts contacts contacts'
@@ -285,6 +292,12 @@
   }
 }
 
+
+
+.footer {
+  border-top: 1px solid var(--grey50);
+  padding: 75px 0 0 0;
+}
 
 .footer__title {
   grid-area: title;
