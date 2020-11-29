@@ -38,10 +38,15 @@
   font-family: Manrope, -apple-system,BlinkMacSystemFont,Roboto,'Helvetica Neue',sans-serif;
   font-style: normal;
   font-weight: 800;
-  font-size: 50px;
+  font-size: 45px;
   /*font-size: 10rem;*/
   line-height: 100%;
   letter-spacing: -0.055em;
+}
+@media only screen and (min-width: 362px) {
+  .h1 {
+    font-size: 50px;
+  }
 }
 @media only screen and (min-width: 745px) {
   .h1 {

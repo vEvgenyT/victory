@@ -1,8 +1,7 @@
 .index-title {
   grid-template-areas:  'tag tag tag .'
                         'title title title title'
-                        'paragraph paragraph paragraph paragraph'
-                        'controls controls controls .';
+                        'paragraph paragraph paragraph .';
   margin: 140px 0 0 0;
 }
 @media only screen and (min-width: 745px) {
@@ -127,12 +126,22 @@
   text-align: center;
 }
 .index-title__contacts_position {
-  /*grid-area: contacts;*/
   position: absolute;
-  right: 0;
-  top: 80vh;
-  margin: 0 0 100px 0;
+  right: 15px;
+  top: 75vh;
 }
+@media only screen and (min-width: 1105px) {
+  .index-title__contacts_position {
+    right: 0;
+    top: 80vh;
+  }
+}
+@media only screen and (orientation: landscape) and (max-height: 350px) {
+  .index-title__contacts_position {
+    top: 50vh;
+  }
+}
+
 .index-title__contacts-arrow {
   position: relative;
   right: 85px;

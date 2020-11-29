@@ -1,3 +1,7 @@
+.index-folio_size {
+  margin: 0 0 75px 0;
+}
+
 .index-folio__figure {
   display: flex;
   flex-wrap: wrap;
@@ -6,12 +10,17 @@
 }
 @media only screen and (min-width: 745px) {
   .index-folio__figure {
+    justify-content: space-evenly;
+  }
+}
+@media only screen and (min-width: 1105px) {
+  .index-folio__figure {
     justify-content: space-between;
   }
 }
 
 .index-folio__img_size {
-  max-height: 300px;
+  max-height: 190px;
   margin: 20px;
 }
 @media only screen and (min-width: 1105px) {
@@ -30,7 +39,13 @@
   grid-area: be;
 }
 .index-folio__lnk {
-  grid-template-areas: 'ig line line be . . . . . . .'
+  grid-template-areas: 'ig . . .'
+                        'be . . .';
+}
+@media only screen and (min-width: 745px) {
+  .index-folio__lnk {
+    grid-template-areas: 'ig ig . be . . . .';
+}
 }
 .index-folio__contacts_style {
   border: 1px solid var(--grey50);
