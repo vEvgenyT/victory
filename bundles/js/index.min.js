@@ -59,8 +59,8 @@ const noise = () => {
     // Setup
     const setup = () => {
         wWidth = window.innerWidth;
-        // wHeight = window.innerHeight;
-        wHeight = document.querySelector('html').getBoundingClientRect().height;
+        wHeight = window.innerHeight;
+        // wHeight = document.querySelector('html').getBoundingClientRect().height;
 
         canvas.width = wWidth;
         canvas.height = wHeight;
@@ -101,4 +101,107 @@ const noise = () => {
 window.onload = function() {
   noise();
 }
+
+
+
+
+
+
+
+// ---------------------- SCROLL ANIMATION ---------------------- \\
+
+Splitting();
+
+// Получил массив для заголовков
+let title = gsap.utils.toArray(document.querySelectorAll('#title .word > .char')),
+
+// Получил массив для основного текста
+    paragraph = gsap.utils.toArray(document.querySelectorAll('#paragraph .word > .char')),
+
+// Получил массив для объектов
+    obj = gsap.utils.toArray(document.querySelectorAll('#obj'));
+
+
+// Переменные тайминга
+const timelineSettings = {
+    staggerValue: 0.012,
+    charsDuration: 0.35
+};
+
+let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: title,
+      start: "top center",
+    }
+})
+
+// Анимация заголовков
+  .from( title, {
+    y:'100%',
+    stagger: timelineSettings.staggerValue,
+    opacity: 0,
+    ease: 'Power3.easeOut'
+  })
+  .to( title, {
+    y:0,
+    stagger: timelineSettings.staggerValue,
+    opacity: 1,
+  }, timelineSettings.charsDuration)
+
+// Анимация основного текста
+.from( paragraph, {
+    y:'100%',
+    stagger: {
+      each: 0.002,
+    },
+    opacity: 0,
+    ease: 'Power3.easeOut'
+  })
+  .to( paragraph, {
+    y:0,
+    stagger: {
+      each: 0.002,
+    },
+    opacity: 1,
+  }, "+=.1")
+
+// Анимация объектов
+.from( obj, {
+  y:"100%",
+  opacity: 0,
+  ease: 'Power3.easeOut'
+}, "-=1.5")
+.to ( obj , {
+  y: 0,
+  opacity: 1,
+  ease: 'Power3.easeOut'
+})
+
+
+
+
+
+let checkbox = document.querySelector("#checkbox");
+
+checkbox.addEventListener( 'change', function() {
+    if(this.checked) {
+        // bodyFixPosition();
+        document.querySelector(".aside").classList.toggle('.aside_checked');
+        console.log('checkbox');
+    } else {
+        // bodyUnfixPosition();
+        document.querySelector(".aside").classList.toggle('.aside_checked');
+        console.log('not');
+    }
+});
+
+
+
+
+
+
+
+
+
+
 

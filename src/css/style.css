@@ -44,7 +44,7 @@
 
 .noise {
     z-index: 100;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -238,23 +238,88 @@
 
 
 
+/*---------------------ASIDE-------------------*/
 
 
+.aside {
+  display: grid;
+  grid-gap: 25px;
+  grid-template-columns: repeat(4, minmax(55px, 1fr));
+  grid-template-areas:  '. title . .'
+                        '. mail . .'
+                        '. social chat .';
+}
+@media only screen and (min-width: 745px) {
+  .aside {
+    grid-template-columns: repeat(8, minmax(65px, 1fr));
+    grid-template-areas:
+                          '. . . . . . . . '
+                          '. title title mail social social chat chat';
+  }
+}
+@media only screen and (min-width: 1105px) {
+  .aside {
+    grid-template-columns: repeat(10, minmax(65px, 1fr));
+    grid-template-areas:
+                          '. . . . . . . . . .'
+                          '. title title mail social social chat chat . .';
+  }
+}
+.aside_style {
+  background-color: var(--grey90);
+  /*height: 100vh;*/
+  /*width: 100vw;*/
+  position: absolute;
+  left: -400px;
+
+}
 
 
+.aside-title {
+  grid-area: title;
+}
+.aside-title_style {
+  color: var(--grey45);
+}
+.aside-title_size {}
+.aside-title_position {
+  margin: 0;
+  height: 35px;
+}
+
+.aside-item {
+  height: 35px;
+}
+
+.aside-item__social {
+  grid-area: social;
+}
+.aside-item_style {
+  list-style-type: none;
+}
+.aside-item_size {}
+.aside-item_position {}
 
 
+.aside-item__chat {
+  grid-area: chat;
+  margin: 15px 0 0 0;
+}
+.aside-item__mail {
+  height: 50px;
+}
+
+#checkbox {
+  position: absolute;
+  /*top: -200px;*/
+}
 
 
-
-
-
-
-
-
-
-
-
+.aside_checked {
+  left: 0px;
+  opacity: 1;
+  transition: .75s cubic-bezier(.4,0,0,1);
+}
 
 
 

@@ -21,6 +21,7 @@
 }
 
 
+
 .index-title__tag {
   grid-area: tag;
 }
@@ -46,6 +47,18 @@
 .index-title__h1_position {
   margin: 0 0 25px -7px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -117,6 +130,7 @@
   border: 1px solid var(--grey50);
   border-radius: 50%;
   color: var(--grey50);
+  cursor: pointer;
 }
 .index-title__contacts_size {
   width: 100px;
