@@ -240,6 +240,97 @@ checkbox.addEventListener( 'change', function() {
 
 
 
+// ---------------------- THREEJS ---------------------- \\
+
+
+
+let canvas = document.querySelector(".object"),
+    renderer = new THREE.WebGLRenderer({canvas});
+
+ renderer.setPixelRatio(window.devicePixelRatio);
+ //Фон канваса
+ renderer.setClearColor(0x202020);
+
+
+
+const cameraData = {
+  fov: 75, // угол обзора
+  aspect: canvas.clientWidth / canvas.clientHeight, // соотрошение сторон, убираем деформацию фигур от изменения размеров окна+ добавить в функцию анимация для вызова перерисовки сцены для динамичного отображения
+  near: 0.1, // передний план
+  far: 10000 // задний план
+};
+
+
+const camera = new THREE.PerspectiveCamera(cameraData.fov, cameraData.aspect, cameraData.near, cameraData.far);
+
+
+camera.position.x = 0;
+camera.position.y = 0;
+camera.position.z = 60;
+
+
+const scene = new THREE.Scene();
+
+const lightData = {
+  colors: 0xDCDBDA,
+  intensity: 1
+}
+
+const light = new THREE.DirectionalLight(lightData.colors, lightData.intensity);
+
+light.position.set(0, 150, 550);
+scene.add(light);
+
+// const boxWidth = 1000;
+// const boxHeight = 1000;
+// const boxDepth = 1000;
+// const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+
+const geometry = new THREE.DodecahedronBufferGeometry(28, 2);
+
+// const material = new THREE.MeshBasicMaterial({color: 0x44aa88});
+
+let material = new THREE.MeshPhongMaterial({color: 0x404040, flatShading: true, wireframe: false});
+
+const cube = new THREE.Mesh(geometry, material);
+
+
+scene.add(cube);
+
+
+renderer.render(scene, camera);
+
+
+function render(time) {
+// cube.position.x = 40;
+// cube.position.y = 40;
+// cube.position.z = 40;
+  time *= 0.00025;  // конвертировать время в секунды
+
+  cube.rotation.x = time;
+  cube.rotation.y = time;
+
+camera.aspect = canvas.clientWidth / canvas.clientHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+
+  renderer.render(scene, camera);
+
+  requestAnimationFrame(render);
+}
+requestAnimationFrame(render);
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -79,6 +79,14 @@
   display: inline-block;
 }
 
+.object {
+  width: 65vw;
+  height: 100vh;
+  position: absolute;
+  top: 0px;
+  left: 35vw;
+  z-index: -100;
+}
 
 /*---------------------HEADER-------------------*/
 
