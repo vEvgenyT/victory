@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp /index"
+    "build": "gulp /index",
+    "about": "gulp /about"
   },
   "homepage": "https://github.com/vEvgenyT/victory",
   "repository": {

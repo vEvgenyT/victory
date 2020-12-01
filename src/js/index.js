@@ -113,40 +113,60 @@ window.onload = function() {
 Splitting();
 
 // Получил массив для заголовков
-let title = gsap.utils.toArray(document.querySelectorAll('#title .word > .char')),
+let subtitle = gsap.utils.toArray(document.querySelectorAll('#subtitle .word > .char, whitespace')),
 
 // Получил массив для основного текста
     paragraph = gsap.utils.toArray(document.querySelectorAll('#paragraph .word > .char')),
 
 // Получил массив для объектов
-    obj = gsap.utils.toArray(document.querySelectorAll('#obj'));
+    obj = gsap.utils.toArray(document.querySelectorAll('#obj')),
+    nav = gsap.utils.toArray(document.querySelectorAll('#nav .word > .char')),
+    title = gsap.utils.toArray(document.querySelectorAll('#title'));
+
 
 
 // Переменные тайминга
 const timelineSettings = {
-    staggerValue: 0.012,
-    charsDuration: 0.35
+    staggerValue: 0.01,
+    charsDuration: 0.5
 };
 
 let tl = gsap.timeline({
+    // repeat: -1,
     scrollTrigger: {
-      trigger: title,
-      start: "top center",
+      trigger: subtitle,
+      start: "top bottom",
     }
 })
 
 // Анимация заголовков
-  .from( title, {
+.from( title, {
+  y:"100%",
+  opacity: 0,
+  duration: 1,
+  ease: "back.out(1)"
+})
+.to ( title, {
+  y: 0,
+  opacity: 1,
+  // ease: "elastic.out(1, 0.75)"
+})
+
+
+// Анимация подзаголовков
+  .from( subtitle, {
     y:'100%',
     stagger: timelineSettings.staggerValue,
     opacity: 0,
+    // rotateX: -360,
     ease: 'Power3.easeOut'
-  })
-  .to( title, {
+  }, "-=.75")
+  .to( subtitle, {
     y:0,
     stagger: timelineSettings.staggerValue,
     opacity: 1,
-  }, timelineSettings.charsDuration)
+    // rotateX: 0,
+  })
 
 // Анимация основного текста
 .from( paragraph, {
@@ -156,26 +176,46 @@ let tl = gsap.timeline({
     },
     opacity: 0,
     ease: 'Power3.easeOut'
-  })
+  }, "-=1.65")
   .to( paragraph, {
     y:0,
     stagger: {
       each: 0.002,
     },
     opacity: 1,
-  }, "+=.1")
+  })
 
 // Анимация объектов
 .from( obj, {
   y:"100%",
   opacity: 0,
-  ease: 'Power3.easeOut'
+  duration: 0.75,
+  ease: "elastic.out(1, 1)"
 }, "-=1.5")
 .to ( obj , {
   y: 0,
   opacity: 1,
-  ease: 'Power3.easeOut'
 })
+
+// Анимация ссылок
+.from( nav, {
+    y:'-100%',
+  rotateX: "-180",
+  duration: 0.75,
+    stagger: {
+      each: 0.01,
+    },
+    opacity: 0,
+    ease: 'Power3.easeOut'
+  }, "-=1.65")
+  .to( nav, {
+    y:0,
+    rotateX: 0,
+    stagger: {
+      each: 0.01,
+    },
+    opacity: 1,
+  })
 
 
 
@@ -184,14 +224,12 @@ let tl = gsap.timeline({
 let checkbox = document.querySelector("#checkbox");
 
 checkbox.addEventListener( 'change', function() {
-    if(this.checked) {
-        // bodyFixPosition();
-        document.querySelector(".aside").classList.toggle('.aside_checked');
-        console.log('checkbox');
-    } else {
-        // bodyUnfixPosition();
-        document.querySelector(".aside").classList.toggle('.aside_checked');
-        console.log('not');
+  if(this.checked) {
+    document.querySelector(".aside").classList.toggle('aside_checked');
+    document.querySelector(".index-title__contacts_style").innerHTML = 'Закрыть';
+  } else {
+      document.querySelector(".aside").classList.toggle('aside_checked');
+    document.querySelector(".index-title__contacts_style").innerHTML = 'Контакты';
     }
 });
 

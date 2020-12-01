@@ -1,0 +1,92 @@
+.about {
+  grid-template-areas:
+                        'subtitle subtitle subtitle subtitle'
+                        'item item item item';
+}
+ @media only screen and (min-width: 412px) {
+  .about {
+  grid-template-areas:
+                        'subtitle subtitle subtitle subtitle'
+                        'item item item item';
+}
+}
+
+@media only screen and (min-width: 745px) {
+  .about {
+    grid-template-areas:  'title title title title title . . .'
+                          'subtitle subtitle subtitle subtitle item item item item';
+  }
+}
+@media only screen and (min-width: 1105px) {
+  .about {
+    grid-template-areas:
+                          '. . . . . . . . . . . .'
+                          'title title title title title title title . . . . .'
+                          'subtitle subtitle subtitle subtitle subtitle . . item item item item .';
+  }
+}
+
+
+
+
+
+.about__title {
+  grid-area: title;
+}
+.about__title_size {
+  width: 400px;
+}
+.about__title_style-1 {
+  background: linear-gradient(265deg, #F15B5B 20%, #3462ee 100%);
+}
+.about__title_style-2 {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.about__title_position {
+  margin: 0 0 25px -7px;
+}
+/*@media only screen and (min-width: 745px) {
+  .index-service__title_position {
+    margin: 0 0 25px -7px;
+}
+}*/
+
+.about__subtitle {
+  grid-area: subtitle;
+}
+.about__subtitle_size {
+  margin: 0;
+}
+.about__subtitle_style {
+  color: var(--grey45);
+}
+.about__subtitle_position {}
+
+
+.about__item {
+  grid-area: item;
+}
+.about__item_size {
+  margin: 0 0 25px 0;
+}
+.about__item_style {
+  color: var(--grey20);
+  list-style-type: none;
+}
+.about__item_position {}
+
+.about__img {
+  /*background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('https://images.unsplash.com/photo-1542190891-2093d38760f2?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80') no-repeat center 50%;*/
+  background: url(../img/title-about_light.png) no-repeat center;
+  background-size: 50%;
+  height: 100vh;
+}
+
+
+
+
+
+
+
+

@@ -55,15 +55,22 @@ var path = {
           'src/**/index/**/mission/**/*.css',
           'src/**/index/**/stages/**/*.css',
           'src/**/index/**/footer/**/*.css',
+          'src/**/about/**/*.css',
         ],
         indexHtml: [
           'src/**/head.html',
           'src/**/header.html',
-          'src/**/title.html',
+          'src/index/title.html',
           'src/**/portfolio.html',
           'src/**/service.html',
           'src/**/mission.html',
           'src/**/stages.html',
+          'src/**/footer.html',
+        ],
+        aboutHtml: [
+          'src/**/head.html',
+          'src/**/header.html',
+          'src/**/about/**/title.html',
           'src/**/footer.html',
         ],
         js: 'src/**/*.js',
@@ -156,6 +163,14 @@ gulp.task('/delfonts', function() {
 
 gulp.task('/indexHtml', ['/delhtml'], async function() {
 return gulp.src(path.src.indexHtml)
+  // .pipe(htmlmin({ collapseWhitespace: false }))
+  // .pipe(htmlmin({ removeComments: false }))
+  .pipe(concat('index.html'))
+  .pipe(gulp.dest(path.bundles.html));
+});
+
+gulp.task('/aboutHtml', ['/delhtml'], async function() {
+return gulp.src(path.src.aboutHtml)
   // .pipe(htmlmin({ collapseWhitespace: false }))
   // .pipe(htmlmin({ removeComments: false }))
   .pipe(concat('index.html'))
@@ -321,6 +336,19 @@ gulp.task('/runIndex', ['/browser-sync'], function() {
     gulp.watch(path.watch.img, browserSync.reload);
 });
 
+gulp.task('/runAbout', ['/browser-sync'], function() {
+    gulp.watch(path.watch.html, ['/aboutHtml'])
+    gulp.watch(path.watch.html, browserSync.reload);
+    gulp.watch(path.watch.css, ['/baseCss', '/indexCss'])
+    gulp.watch(path.watch.css, browserSync.reload);
+    gulp.watch(path.watch.js, ['/js'])
+    gulp.watch(path.watch.js, browserSync.reload);
+    gulp.watch(path.watch.fonts, ['/fonts'])
+    gulp.watch(path.watch.fonts, browserSync.reload);
+    gulp.watch(path.watch.img, ['/img'])
+    gulp.watch(path.watch.img, browserSync.reload);
+});
+
 // -= ******************************************************** =- \\
 
 
@@ -328,6 +356,8 @@ gulp.task('/compile', ['/css', '/js', '/html', '/img', '/fonts']);
 gulp.task('/interpret', ['/css', '/js', '/html', '/img', '/fonts', '/run']);
 
 gulp.task('/index', ['/runIndex', '/indexHtml', '/js', '/baseCss', '/indexCss', '/imgCopy', '/fonts']);
+
+gulp.task('/about', ['/runAbout', '/aboutHtml', '/js', '/baseCss', '/indexCss', '/imgCopy', '/fonts']);
 
 
 // HELP ///////////////////////////////////////////////////////////
