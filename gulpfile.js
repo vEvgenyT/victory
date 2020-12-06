@@ -61,7 +61,7 @@ var path = {
           'src/**/head.html',
           'src/**/header.html',
           'src/**/index/**/title.html',
-          // 'src/**/portfolio.html',
+          'src/**/portfolio.html',
           // 'src/**/service.html',
           // 'src/**/mission.html',
           // 'src/**/stages.html',

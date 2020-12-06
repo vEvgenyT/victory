@@ -158,20 +158,20 @@ let targets = gsap.utils.toArray(this.DOM.textinner);
         gsap.killTweensOf(document.body);
         gsap.killTweensOf(this.DOM.textinner);
 
-        // gsap
-        // .timeline()
-        // // .to(document.body, 0.2, {backgroundColor: bodyColor})
-        // .to(this.DOM.textinner, 0.1, {
-        //     ease: 'Power3.easeOut',
-        //     opacity: 0,
-        //     y: '10%'
-        // }, 0)
-        // .to(this.DOM.textinner, 0.2, {
-        //     ease: 'Expo.easeOut',
-        //     opacity: 1,
-        //     startAt: {y: '-20%'},
-        //     y: '0%'
-        // });
+        gsap
+        .timeline()
+        // .to(document.body, 0.2, {backgroundColor: bodyColor})
+        .to(this.DOM.textinner, 0.1, {
+            ease: 'Power3.easeOut',
+            opacity: 0,
+            y: '10%'
+        }, 0)
+        .to(this.DOM.textinner, 0.2, {
+            ease: 'Expo.easeOut',
+            opacity: 1,
+            startAt: {y: '-20%'},
+            y: '0%'
+        });
     }
 }
 

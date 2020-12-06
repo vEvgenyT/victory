@@ -223,6 +223,7 @@
 .header__nav_style {
   color: var(--grey30);
   list-style-type: none;
+  /*overflow: hidden;*/
 }
 .header__nav_style-animation:hover {
   background: linear-gradient(-60deg, #F15B5B, #09C6F9, #3462EE, #F15B5B);
@@ -550,7 +551,7 @@
 
 #checkbox {
    position: absolute;
-  top: -200px;
+  top: -200vh;
 }
 
 

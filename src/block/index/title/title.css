@@ -139,21 +139,22 @@
   text-align: center;
 }
 .index-title__contacts_position {
-  position: absolute;
+  position: fixed;
   right: 15px;
-  top: 75vh;
+  /*top: 70vh;*/
+  bottom: 200px;
 }
-@media only screen and (min-width: 1105px) {
+/*@media only screen and (min-width: 1105px) {
   .index-title__contacts_position {
     right: 0;
-    top: 80vh;
+    top: 75vh;
   }
 }
 @media only screen and (orientation: landscape) and (max-height: 350px) {
   .index-title__contacts_position {
     top: 50vh;
   }
-}
+}*/
 
 .index-title__contacts-arrow {
   position: relative;
