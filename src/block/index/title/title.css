@@ -15,8 +15,8 @@
   .index-title {
     grid-template-areas:  'tag tag tag . . . . . . . . .'
                           'title title title title title title title title title . . .'
-                          'paragraph paragraph paragraph paragraph . . . . . . . .'
-                          '. contacts . . . arrow arrow . . . . .';
+                          'paragraph paragraph paragraph paragraph . . . . . . . .';
+                          /*'. contacts . . . arrow arrow . . . . .';*/
 }
 }
 

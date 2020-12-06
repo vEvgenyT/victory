@@ -73,7 +73,17 @@ var path = {
           'src/**/about/**/title.html',
           'src/**/footer.html',
         ],
-        js: 'src/**/*.js',
+        js: [
+          // 'src/**/*.js',
+          'src/**/js/**/base.js',
+          'src/**/js/**/offscroll.js',
+          'src/**/js/**/preloader.js',
+          'src/**/js/**/noise.js',
+          'src/**/js/**/animation.js',
+          'src/**/js/**/checkbox.js',
+          // 'src/**/js/**/three.js',
+          'src/**/js/**/btn.js'
+        ],
         img: 'src/img/**/*.*',
         imgWebpIn: [
           // 'src/img/*.png',
@@ -240,7 +250,7 @@ gulp.task('/indexCss', function() {
 // });
 
 
-gulp.task('/js', ['/deljs'], async function() {
+gulp.task('/js', ['/deljs'], function() {
     return gulp.src(path.src.js)
     .pipe(concat('index.min.js'))
     .pipe(gulp.dest(path.bundles.js));
@@ -355,7 +365,7 @@ gulp.task('/runAbout', ['/browser-sync'], function() {
 gulp.task('/compile', ['/css', '/js', '/html', '/img', '/fonts']);
 gulp.task('/interpret', ['/css', '/js', '/html', '/img', '/fonts', '/run']);
 
-gulp.task('/index', ['/runIndex', '/indexHtml', '/js', '/baseCss', '/indexCss', '/imgCopy', '/fonts']);
+gulp.task('/index', ['/runIndex', '/indexHtml', '/js', '/baseCss', '/indexCss', '/fonts']);
 
 gulp.task('/about', ['/runAbout', '/aboutHtml', '/js', '/baseCss', '/indexCss', '/imgCopy', '/fonts']);
 
