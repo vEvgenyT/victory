@@ -73,13 +73,59 @@
 }
 
 
-
-
-
-.follow {
+/*.follow {
   color: var(--grey35);
   grid-area: line;
   line-height: 100px;
   margin: 0 auto;
   padding: 0 0 0 30px;
+}*/
+
+.button {
+  position: relative;
 }
+
+.button:before {
+  content: "";
+  display: inline-block;
+  transition: .4s cubic-bezier(.4,0,0,1);
+  width: 0px;
+  height: 0px;
+  background-color: var(--grey20);
+  /*scaleX: 0.5;*/
+  line-height: 100px;
+  /*align-items: center;*/
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+
+.button:hover:before {
+  /*scale: 1;*/
+  width: 101px;
+  height: 101px;
+  left: 0;
+  top: 0;
+  z-index: -10;
+}
+
+.button:hover {
+  color: var(--grey80);
+  transition: .5s cubic-bezier(.4,0,0,1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

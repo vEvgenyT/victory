@@ -19,6 +19,7 @@ let subtitle = gsap.utils.toArray(document.querySelectorAll('#subtitle .word > .
 // Получил массив для объектов
     obj = gsap.utils.toArray(document.querySelectorAll('#obj')),
     nav = gsap.utils.toArray(document.querySelectorAll('#nav .word > .char')),
+    folio = gsap.utils.toArray(document.querySelectorAll('#folio')),
     title = gsap.utils.toArray(document.querySelectorAll('#title'));
 
 
@@ -32,7 +33,7 @@ const timelineSettings = {
 let tl = gsap.timeline({
     // repeat: -1,
     scrollTrigger: {
-      trigger: subtitle,
+      trigger: title,
       start: "top bottom",
     }
 })
@@ -118,4 +119,147 @@ let tl = gsap.timeline({
 
 
   // }
+  //
+  //
+  //
+  // Анимация портфолио
+  let rnd = gsap.utils.random(0, 30, 5);
+  let timeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: folio,
+      // pin: "#pinned",
+      // scrub: true,
+      start: "top center",
+      // end: "+=120%",
 
+      // onUpdate: ({progress}) => timeline.progress() < progress ? timeline.progress(progress) : null
+    },
+})
+
+// Анимация картинок
+.from( folio, {
+  y:rnd,
+  scale: 0,
+  opacity: 0,
+  duration: 2.5,
+  stagger: {
+      each: .15,
+      from: "top",
+    },
+  ease: "elastic.out(1, 1.25)"
+});
+
+
+
+
+let serviceTitle = gsap.utils.toArray(document.querySelectorAll('#serviceTitle'));
+let serviceSubtitle = gsap.utils.toArray(document.querySelectorAll('#serviceSubtitle .word > .char, whitespace')),
+
+// Получил массив для основного текста
+    serviceParagraph = gsap.utils.toArray(document.querySelectorAll('#serviceParagraph .word > .char'));
+
+let service = gsap.timeline({
+    // repeat: -1,
+    scrollTrigger: {
+      trigger: serviceTitle,
+      start: "top center",
+      // markers: true
+    }
+})
+.from( serviceTitle, {
+  y:"50%",
+  opacity: 0,
+  scaleX: 1.8,
+  duration: 1.4,
+  ease: "back.out(0.75)"
+})
+.to ( serviceTitle, {
+  y: 0,
+  opacity: 1,
+})
+// Анимация подзаголовков
+  .from( serviceSubtitle, {
+    y:'100%',
+    stagger: timelineSettings.staggerValue,
+    opacity: 0,
+    ease: 'Power3.easeOut'
+  }, "-=1")
+  .to( serviceSubtitle, {
+    y:0,
+    stagger: timelineSettings.staggerValue,
+    opacity: 1,
+  })
+
+// Анимация основного текста
+.from( serviceParagraph, {
+    y:'100%',
+      rotateX: -160,
+    stagger: {
+      each: 0.0035,
+    },
+    opacity: 0,
+    ease: 'Power3.easeOut'
+  }, "-=1.75")
+  .to( serviceParagraph, {
+    y:0,
+    opacity: 1,
+  });
+
+
+
+
+
+
+
+  let stagesTitle = gsap.utils.toArray(document.querySelectorAll('#stagesTitle'));
+let stagesSubtitle = gsap.utils.toArray(document.querySelectorAll('#stagesSubtitle .word > .char, whitespace')),
+
+// Получил массив для основного текста
+    stagesParagraph = gsap.utils.toArray(document.querySelectorAll('#stagesParagraph .word > .char'));
+
+let stages = gsap.timeline({
+    // repeat: -1,
+    scrollTrigger: {
+      trigger: stagesTitle,
+      start: "top center",
+      // markers: true
+    }
+})
+.from( stagesTitle, {
+  y:"50%",
+  opacity: 0,
+  scaleX: 1.8,
+  duration: 1.4,
+  ease: "back.out(0.75)"
+})
+.to ( stagesTitle, {
+  y: 0,
+  opacity: 1,
+})
+// Анимация подзаголовков
+  .from( stagesSubtitle, {
+    y:'100%',
+    stagger: timelineSettings.staggerValue,
+    opacity: 0,
+    ease: 'Power3.easeOut'
+  }, "-=1")
+  .to( stagesSubtitle, {
+    y:0,
+    stagger: timelineSettings.staggerValue,
+    opacity: 1,
+  })
+
+// Анимация основного текста
+.from( stagesParagraph, {
+    y:'100%',
+      rotateX: -160,
+    stagger: {
+      each: 0.0035,
+    },
+    opacity: 0,
+    ease: 'Power3.easeOut'
+  }, "-=1.75")
+  .to( stagesParagraph, {
+    y:0,
+    opacity: 1,
+  })

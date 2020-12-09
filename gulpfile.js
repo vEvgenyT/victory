@@ -32,10 +32,12 @@ var folder = [
   './src/js',
   './src/img',
   './src/fonts',
+  './src/sound',
   './bundles/css',
   './bundles/js',
   './bundles/img',
-  './bundles/fonts'
+  './bundles/fonts',
+  './bundles/sound'
 ];
 
 var path = {
@@ -46,6 +48,7 @@ var path = {
           'src/css/**/fonts.css',
           'src/css/**/color.css',
           'src/css/**/style.css',
+          // 'src/css/**/style.css',
         ],
         indexCss: [
           'src/**/index/**/header/**/*.css',
@@ -62,9 +65,9 @@ var path = {
           'src/**/header.html',
           'src/**/index/**/title.html',
           'src/**/portfolio.html',
-          // 'src/**/service.html',
+          'src/**/service.html',
           // 'src/**/mission.html',
-          // 'src/**/stages.html',
+          'src/**/stages.html',
           'src/**/footer.html',
         ],
         aboutHtml: [
@@ -81,8 +84,10 @@ var path = {
           'src/**/js/**/noise.js',
           'src/**/js/**/animation.js',
           'src/**/js/**/checkbox.js',
-          // 'src/**/js/**/three.js',
-          'src/**/js/**/btn.js'
+          'src/**/js/**/three.js',
+          'src/**/js/**/btn.js',
+          // 'src/**/js/**/locomotive.js',
+          'src/**/js/**/buzz.js'
         ],
         img: 'src/img/**/*.*',
         imgWebpIn: [
@@ -91,21 +96,24 @@ var path = {
           'src/img/*.*'
         ],
         // imgWebpOut: 'src/img/',
-        fonts: 'src/fonts/**/*.*'
+        fonts: 'src/fonts/**/*.*',
+        sound: 'src/sound/**/*.*'
     },
     bundles: {
         html: 'bundles/',
         css: 'bundles/css/',
         js: 'bundles/js/',
         img: 'bundles/img/',
-        fonts: 'bundles/fonts/'
+        fonts: 'bundles/fonts/',
+        sound: 'bundles/sound/'
     },
     watch: {
         html: 'src/**/*.html',
         css: 'src/**/*.css',
         js: 'src/**/*.js',
         img: 'src/img/**/*.*',
-        fonts: 'src/fonts/**/*.*'
+        fonts: 'src/fonts/**/*.*',
+        sound: 'src/sound/**/*.*',
     },
     clean: 'bundles/**/*.*'
 };
@@ -183,7 +191,7 @@ gulp.task('/aboutHtml', ['/delhtml'], async function() {
 return gulp.src(path.src.aboutHtml)
   // .pipe(htmlmin({ collapseWhitespace: false }))
   // .pipe(htmlmin({ removeComments: false }))
-  .pipe(concat('index.html'))
+  .pipe(concat('about.html'))
   .pipe(gulp.dest(path.bundles.html));
 });
 
@@ -203,7 +211,7 @@ gulp.task('/baseCss', ['/delcss'], function() {
     .pipe(prefixer())
     .pipe(csscomb())
     .pipe(gcmq())
-    .pipe(postcss(processors))
+    // .pipe(postcss(processors))
     .pipe(gulp.dest(path.bundles.css));
 });
 
@@ -217,9 +225,25 @@ gulp.task('/indexCss', function() {
     .pipe(prefixer())
     .pipe(csscomb())
     .pipe(gcmq())
-    .pipe(postcss(processors))
+    // .pipe(postcss(processors))
     .pipe(gulp.dest(path.bundles.css));
 });
+
+
+gulp.task('/aboutCss', function() {
+    var processors = [
+    cssnano(),
+  ];
+  return gulp.src(path.src.indexCss)
+    .pipe(concat('about.css'))
+    .pipe(shorthand())
+    .pipe(prefixer())
+    .pipe(csscomb())
+    .pipe(gcmq())
+    // .pipe(postcss(processors))
+    .pipe(gulp.dest(path.bundles.css));
+});
+
 
 // -= ******************************************************** =- \\
 
@@ -266,6 +290,11 @@ gulp.task('/js', ['/deljs'], function() {
 gulp.task('/fonts', async function() {
     return gulp.src(path.src.fonts)
     .pipe(gulp.dest(path.bundles.fonts));
+});
+
+gulp.task('/sound', async function() {
+    return gulp.src(path.src.sound)
+    .pipe(gulp.dest(path.bundles.sound));
 });
 
 // -= ******************************************************** =- \\
@@ -344,6 +373,8 @@ gulp.task('/runIndex', ['/browser-sync'], function() {
     gulp.watch(path.watch.fonts, browserSync.reload);
     gulp.watch(path.watch.img, ['/img'])
     gulp.watch(path.watch.img, browserSync.reload);
+    gulp.watch(path.watch.sound, ['/sound'])
+    gulp.watch(path.watch.sound, browserSync.reload);
 });
 
 gulp.task('/runAbout', ['/browser-sync'], function() {
@@ -365,9 +396,9 @@ gulp.task('/runAbout', ['/browser-sync'], function() {
 gulp.task('/compile', ['/css', '/js', '/html', '/img', '/fonts']);
 gulp.task('/interpret', ['/css', '/js', '/html', '/img', '/fonts', '/run']);
 
-gulp.task('/index', ['/runIndex', '/indexHtml', '/js', '/baseCss', '/indexCss', '/fonts']);
+gulp.task('/index', ['/runIndex', '/indexHtml', '/js', '/baseCss', '/indexCss', '/fonts', '/sound', '/about']);
 
-gulp.task('/about', ['/runAbout', '/aboutHtml', '/js', '/baseCss', '/indexCss', '/imgCopy', '/fonts']);
+gulp.task('/about', ['/runAbout', '/aboutHtml', '/js', '/baseCss', '/aboutCss', '/imgCopy', '/fonts']);
 
 
 // HELP ///////////////////////////////////////////////////////////

@@ -14,7 +14,7 @@
   <!-- Прелоадер -->
   <div class="preloader">
     <div class="preloader__img_position">
-      <img src="img/logo.svg" alt="#" class="preloader__img_size">
+      <img src="img/logo.svg" alt="#" class="preloader__img_size preloader__img">
       <span>
       <span class="line line-1"></span>
       <span class="line line-2"></span>
@@ -36,7 +36,7 @@
 
     <div id="obj" class="header header_size">
 
-      <a href="#" class="header__img_size">
+      <a href="http://localhost:3000/" class="header__img_size">
         <img src="img/logo.svg" alt="#" class="header__img_size">
       </a>
 
@@ -75,7 +75,7 @@
       <ul>
         <li class="header__nav_style">
           <!-- <a href="#" class="nav header__nav_style header__nav_style-animation">Обо мне</a> -->
-          <a href="#" class="nav nav-lnk_style nav-lnk_size nav-lnk_position">
+          <a href="http://localhost:3000/about.html" class="nav nav-lnk_style nav-lnk_size nav-lnk_position">
             <span>Обо мне</span>
             <span class="nav-lnk__line_style nav-lnk__line_size nav-lnk__line_position"></span>
           </a>
@@ -111,7 +111,7 @@
 
   <main class="">
 
-    <article>
+    <article data-scroll-container>
       <!-- <aside class="grid aside aside_style">
         <h4 class="p aside-title aside-title_style aside-title_position">Say hello</h4>
         <ul class="aside-item__social">
@@ -189,7 +189,7 @@
 
 
 
-<section class="grid index-title block-gap-title_size">
+<section class="grid index-title block-gap-title_size" data-scroll-section>
 
 
   <p id="subtitle" class="index-title__tag h3 index-title__tag_style index-title__tag_position" data-splitting>Диджитализация</p>
@@ -225,13 +225,13 @@
 
 </section>
 
-<section class="block-gap_size">
+<section class="block-gap_size" data-scroll-section>
   <h2 class="visually-hidden">Портфолио</h2>
 
   <ul class="index-folio_size">
     <li class="index-folio__figure">
 
-       <figure>
+       <figure id="folio">
 
         <picture>
 
@@ -284,7 +284,7 @@
 
       </figure>
 
-      <figure>
+      <figure id="folio">
 
         <picture>
 
@@ -337,7 +337,7 @@
 
       </figure>
 
-      <figure>
+      <figure id="folio">
 
         <picture>
 
@@ -395,7 +395,7 @@
 
     <li class="index-folio__figure">
 
-      <figure>
+      <figure id="folio">
 
         <picture>
 
@@ -449,7 +449,7 @@
       </figure>
 
 
-      <figure>
+      <figure id="folio">
 
         <picture>
 
@@ -502,7 +502,7 @@
 
       </figure>
 
-      <figure>
+      <figure id="folio">
 
         <picture>
 
@@ -559,7 +559,7 @@
 
     <li class="index-folio__figure">
 
-      <figure>
+      <figure id="folio">
 
         <picture>
 
@@ -613,7 +613,7 @@
       </figure>
 
 
-      <figure>
+      <figure id="folio">
 
         <picture>
 
@@ -667,7 +667,7 @@
       </figure>
 
 
-      <figure>
+      <figure id="folio">
 
         <picture>
 
@@ -724,7 +724,7 @@
 
     <li class="index-folio__figure">
 
-      <figure>
+      <figure id="folio">
 
         <picture>
 
@@ -778,7 +778,7 @@
       </figure>
 
 
-      <figure>
+      <figure id="folio">
 
         <picture>
 
@@ -831,7 +831,7 @@
 
       </figure>
 
-      <figure>
+      <figure id="folio">
 
         <picture>
 
@@ -889,49 +889,28 @@
   </ul>
 
 
-<!--   <div class="grid index-folio__lnk">
-    <a href="#" class="a index-folio__contacts index-folio__contacts_style index-folio__contacts_size index-folio__contacts_position">Instagram</a>
-    <span class="nav follow">follow me on</span>
-    <a href="#" class="a index-folio__contacts index-folio__contacts_style index-folio__contacts_size index-folio__contacts_position">Behance</a>
-  </div> -->
-
   <ul class="grid index-folio__lnk">
 
-<!--   <li class="header__nav_style index-folio__contacts">
-  <input type="checkbox" id="checkbox" class="checkbox">
-  <label for="checkbox" class="button nav">
-    <div class="button__deco button__deco--2"></div>
-    <div class="button__deco button__deco--1"></div>
-    <span class="">
-      <span href="#" class="button__text">
-        Instagram
-      </span>
-    </span>
-  </label>
-</li> -->
-
-<!-- <li class="header__nav_style index-title__contacts_position">
+  <li class="header__nav_style index-folio__contacts" id="obj">
   <a href="#" class="button nav">
     <div class="button__deco button__deco--2"></div>
     <div class="button__deco button__deco--1"></div>
     <span>
-      <span class="button__text">Inst</span>
+      <span class="button__text">Instagram</span>
     </span>
   </a>
-</li> -->
+</li>
 
-<!-- <li class="header__nav_style index-folio__contacts">
-  <input type="checkbox" id="checkbox" class="checkbox">
-  <label for="checkbox" class="button nav">
+<li class="header__nav_style index-folio__contacts" id="obj">
+  <a href="#" class="button nav">
     <div class="button__deco button__deco--2"></div>
     <div class="button__deco button__deco--1"></div>
-    <span class="">
-      <span href="#" class="button__text">
-        Behance
-      </span>
+    <span>
+      <span class="button__text">Behance</span>
     </span>
-  </label>
-</li> -->
+  </a>
+</li>
+
 
 </ul>
 
@@ -957,6 +936,59 @@
 
 
 
+
+<section class="grid index-service block-gap_size">
+
+  <h2 id="serviceTitle" class="h1 index-service__title index-service__title_style-1 index-service__title_style-2 index-service__title_position">
+    <span class="index-service__title_size">Промо</span>
+    <span class="index-service__title_size">Лендинг</span>
+    <span class="index-service__title_size">Портфолио</span>
+    <!-- <span>Корпоративный</span> -->
+  </h2>
+
+
+    <h3 id="serviceSubtitle" class="h3 index-service__subtitle index-service__subtitle_style index-service__subtitle_size" data-splitting>Я рисую не сайты, а создаю инструменты для решения бизнес задач.</h3>
+
+    <ul class="index-service__item">
+      <li class="index-service__item_style index-service__item_size">
+        <p id="serviceParagraph" class="p index-service__item_size" data-splitting>Сначала «продажи»‎, «продажи»‎ и еще раз «продажи»‎. Ведь за этим и нужен сайт! Затем дизайн с выразительной типографикой и максимальной интерактивностью.</p>
+      </li>
+      <li class="index-service__item_style index-service__item_size">
+        <p id="serviceParagraph" class="p index-service__item_size" data-splitting>Структуру и контент создаю на основе анализа ваших бизнес-процессов. Это обеспечит легкую поддержку и долгий жизненный цикл продукта.</p>
+      </li>
+      <li class="index-service__item_style index-service__item_size">
+        <p id="serviceParagraph" class="p index-service__item_size" data-splitting>Проекты в Tilda / Readymag. Быстрый запуск, легкая поддержка, большая база знаний и сообщество. То, что вебмастер прописал.</p>
+      </li>
+    </ul>
+
+
+</section>
+
+<section class="grid index-stages block-gap_size">
+
+
+  <h2 id="stagesTitle" class="h1 index-stages__title index-stages__title_style-1 index-stages__title_style-2 index-stages__title_position">Как я работаю</h2>
+
+
+    <h3 id="stagesSubtitle" class="h3 index-stages__subtitle index-stages__subtitle index-stages__subtitle_style index-stages__subtitle_size" data-splitting>Это приблизительный алгоритм при создании сайта, для каждого проекта он варьируется в зависимости от целей.</h3>
+
+    <ul class="index-stages__item">
+      <li class="index-service__item_style index-service__item_size">
+        <p id="stagesParagraph" class="p index-service__item_size" data-splitting>Интервью с заказчиком помогает выявить проблемы которые нужно решить и правильно определить цели будущего проекта.  Я всегда задаю много вопросов, глубоко погружаюсь в проект, чтобы найти оптимальное решение.</p>
+      </li>
+      <li class="index-service__item_style index-service__item_size">
+        <p id="stagesParagraph" class="p index-service__item_size" data-splitting>Формирую техническое задание в котором отражены конкретные задачи и цели, требования к блокам и страницам веб-сайта, их иерархии, композиции, стеку технологий на которых будет работать сайт.</p>
+      </li>
+      <li class="index-service__item_style index-service__item_size">
+        <p id="stagesParagraph" class="p index-service__item_size" data-splitting>В большинстве случаев я сразу начинаю создавать макеты в Figma, это наиболее эффективный способ быстро и точно проработать взаимосвязь элементов, создать композицию и повествовательную линию.</p>
+      </li>
+      <li class="index-service__item_style index-service__item_size">
+        <p id="stagesParagraph" class="p index-service__item_size" data-splitting>Когда прототипы одобрены, придаю им законченный вид, с четко выстроенной системой сеток, размеров, отступов, шрифтовой гарнитурой и цветовой палитрой.</p>
+      </li>
+    </ul>
+
+
+</section>
 
     </article>
   </main>
@@ -1026,7 +1058,15 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/EventEmitter/5.2.8/EventEmitter.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.com/libraries/buzz"></script>
   <!-- <script type="text/javascript" src="https://unpkg.com/three@0.85.0/examples/js/controls/OrbitControls.js"></script> -->
   <script type="text/javascript" src="js/index.min.js"></script>
+
+<!--   <script>
+    const scroll = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true
+});
+</script> -->
 </body>
 </html>

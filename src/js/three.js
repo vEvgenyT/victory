@@ -83,8 +83,8 @@
 
 
 
-// let canvas = document.querySelector(".object"),
-    // renderer = new THREE.WebGLRenderer({canvas});
+let canvas = document.querySelector(".object"),
+    renderer = new THREE.WebGLRenderer({canvas});
 
  renderer.setPixelRatio(window.devicePixelRatio);
  //Фон канваса
