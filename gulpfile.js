@@ -87,7 +87,7 @@ var path = {
           'src/**/js/**/three.js',
           'src/**/js/**/btn.js',
           // 'src/**/js/**/locomotive.js',
-          'src/**/js/**/buzz.js'
+          // 'src/**/js/**/buzz.js'
         ],
         img: 'src/img/**/*.*',
         imgWebpIn: [
