@@ -161,14 +161,16 @@ camera.position.z = 60;
 const scene = new THREE.Scene();
 
 const lightData = {
-  colors: 0xDCDBDA,
-  intensity: 1
+  // colors: 0xDCDBDA,
+  colors: 0x858585,
+  intensity: 1.35,
 }
 
 const light = new THREE.DirectionalLight(lightData.colors, lightData.intensity);
 
 light.position.set(0, 150, 550);
 scene.add(light);
+
 
 // const boxWidth = 1000;
 // const boxHeight = 1000;
@@ -186,7 +188,6 @@ const cube = new THREE.Mesh(geometry, material);
 
 scene.add(cube);
 
-
 renderer.render(scene, camera);
 
 
@@ -196,8 +197,8 @@ function render(time) {
 
   time *= 0.000005;  // конвертировать время в секунды
 
-  cube.rotation.x = time;
-  cube.rotation.y = time;
+  // cube.rotation.x = time;
+  // cube.rotation.y = time;
 
 camera.aspect = canvas.clientWidth / canvas.clientHeight;
   camera.updateProjectionMatrix();
@@ -215,7 +216,8 @@ camera.aspect = canvas.clientWidth / canvas.clientHeight;
 
   // cube.rotation.x += 0.102 * ( target.y - camera.rotation.x );
   // cube.rotation.y += 0.102 * ( target.x - camera.rotation.y );
-    cube.rotation.z += 0.02 * ( target.x - camera.rotation.y );
+    cube.rotation.z += 0.012 * ( target.x - camera.rotation.y );
+    // light.position.x += 0.02 * ( target.x - camera.rotation.y );
 
 }
 requestAnimationFrame(render);

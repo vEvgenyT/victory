@@ -82,7 +82,7 @@ var path = {
           'src/**/js/**/offscroll.js',
           'src/**/js/**/preloader.js',
           'src/**/js/**/noise.js',
-          'src/**/js/**/animation.js',
+          'src/**/js/**/scrollanimation.js',
           'src/**/js/**/checkbox.js',
           'src/**/js/**/three.js',
           'src/**/js/**/btn.js',

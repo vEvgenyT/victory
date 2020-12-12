@@ -644,6 +644,7 @@ html.has-scroll-dragging {
   top: 0;
   width: 100vw;
   z-index: -100;
+  /*display: none;*/
   /*grid-area: object;*/
 }
 
