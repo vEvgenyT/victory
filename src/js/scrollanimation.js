@@ -72,29 +72,31 @@ section.forEach(item => {
   const tl = gsap.timeline({
     paused: true,
     defaults: {
-      ease: "back.out(0.75)",
-      duration: 1,
+      ease: "expo.inOut",
+      duration: .5,
       y: "50%"
     }
   })
+  .add('startPosition', .75)
   .from(item.querySelector('[data-animation-header]'), {
-    // y:random,
+    y:"35%",
     opacity: 0,
-  }, "+=.5")
+    duration: 1.3
+  }, "startPosition")
   .from(item.querySelectorAll('[data-animation-subtitle] .char'), {
     // y:random,
     opacity: 0,
     stagger: {
       each: .0035
     }
-  }, "-=1.5")
+  }, "-=.7")
   .from(item.querySelectorAll('[data-animation-text] .char'), {
-    // y:random,
+    duration: 1.3,
     opacity: 0,
     stagger: {
       each: .0035
     }
-  }, "+=2")
+  }, "-=.5")
 
 ScrollTrigger.create({
   animation: tl,
