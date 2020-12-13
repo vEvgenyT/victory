@@ -637,6 +637,7 @@ html.has-scroll-dragging {
 
 .object {
   bottom: 0;
+  display: none;
   height: 100vh;
   left: 0;
   position: absolute;
@@ -644,7 +645,6 @@ html.has-scroll-dragging {
   top: 0;
   width: 100vw;
   z-index: -100;
-  /*display: none;*/
   /*grid-area: object;*/
 }
 

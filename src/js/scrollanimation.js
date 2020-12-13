@@ -1,120 +1,114 @@
 Splitting();
-
-// Переменные для анимации
-let titleParagraph = gsap.utils.toArray(document.querySelectorAll('#titleParagraph .word > .char')),
-    serviceItems = gsap.utils.toArray(document.querySelectorAll('#itemsService')),
-    serviceParagraph = gsap.utils.toArray(document.querySelectorAll('#paragraph .word > .char')),
-    serviceItem = gsap.utils.toArray(document.querySelectorAll('.index-service__item')),
-    stageItem = gsap.utils.toArray(document.querySelectorAll('.index-stages__item')),
-    stageParagraph = gsap.utils.toArray(document.querySelectorAll('#stageParagraph .word > .char'));
-let title = gsap.utils.toArray(document.querySelectorAll('#title'));
-let subtitle = gsap.utils.toArray(document.querySelectorAll('#subtitle .word > .char'));
-let subtitletwo = gsap.utils.toArray(document.querySelectorAll('#subtitletwo .word > .char'));
+gsap.registerPlugin(ScrollTrigger);
 
 
+let section = document.querySelectorAll('[data-animation-section]'),
+    random = gsap.utils.random(10, 50, 10);
+
+    // obj = gsap.utils.toArray(document.querySelectorAll('[data-animation-obj]')),
+    // header = gsap.utils.toArray(document.querySelectorAll('[data-animation-header]')),
+    // subtitle = gsap.utils.toArray(document.querySelectorAll('[data-animation-subtitle] .word > .char')),
+    // text = gsap.utils.toArray(document.querySelectorAll('[data-animation-text] .word > .char'));
+
+// header.forEach(item => {
+//   gsap.from(item, {
+//   y:"50%",
+//   opacity: 0,
+//   scaleX: 1.8,
+//   duration: 1.4,
+//   ease: "back.out(0.75)",
+//   stagger: {
+//     each: .35
+//   },
+//   scrollTrigger: {
+//     trigger: item,
+//     start: 'top center',
+//   }
+// })
+// })
+//
+//
+//
+//
 
 
 // gsap.registerEffect({
-//   name: 'titleIn',
+//   name: 'headerIn',
 //   extendTimeline: true,
-//   effect: (targets, config) => {
+//   defaults: {duration: 1, ease: "back.out(0.75)"},
 
-
-//     let tl = gsap.timeline({});
-
-//         tl.from(targets, {
-//           y:'100%',
-//           rotateX: -160,
-//           stagger: {
-//             each: 0.0035,
-//           },
-//           opacity: 0,
-//           ease: 'Power3.easeOut',
-//           scrollTrigger: {
-//             trigger: targets,
-//             start: "top center",
-//           }
-//      }, "+=1")
-
-//     return tl
+//   effect: (header, config) => {
+//     let tl = gsap.timeline({})
+//     // header.forEach(item => {
+//       tl.from(header, {
+//         y:"50%",
+//         opacity: 0,
+//         // scaleX: 1.8,
+//         duration: config.duration,
+//         ease: config.ease,
+//         stagger: {
+//           each: .0035
+//         },
+//         scrollTrigger: {
+//           trigger: section[0],
+//           start: 'top center',
+//         }
+//       })
+//       return tl
+//     // })
 //   }
-// });
-
-
-
-
-gsap.registerEffect({
-  name: 'titleIn',
-  extendTimeline: true,
-  effect: (targets, config) => {
-
-
-    // let tl = gsap.timeline({});
-
-    targets.forEach(targets => {
-        // tl.add(
-        gsap.from(targets, {
-          y:"50%",
-  opacity: 0,
-  scaleX: 1.8,
-  duration: 1.4,
-  ease: "back.out(0.75)",
-          scrollTrigger: {
-            trigger: targets,
-            start: "top center",
-          }
-        })
-        // )
-    })
-
-    return targets
-  }
-});
-
-
-
-gsap.registerEffect({
-  name: 'textIn',
-  extendTimeline: true,
-  effect: (targets, config) => {
-
-
-    // let tl = gsap.timeline({});
-
-    config.forEach(config => {
-        // tl.add(
-        gsap.from(targets, {
-          y:'100%',
-          // rotateX: -160,
-          duration: .55,
-          stagger: {
-            each: 0.0032,
-          },
-          opacity: 0,
-          ease: 'Power3.easeOut',
-          scrollTrigger: {
-            trigger: config,
-            start: "top center",
-          }
-        })
-        // )
-    })
-
-    return targets
-  }
-});
+// })
 
 
 
 
 
-let tl = gsap.timeline({
-  // repeat: -1
+
+
+
+
+section.forEach(item => {
+
+  const tl = gsap.timeline({
+    paused: true,
+    defaults: {
+      ease: "back.out(0.75)",
+      duration: 1,
+      y: "50%"
+    }
+  })
+  .from(item.querySelector('[data-animation-header]'), {
+    // y:random,
+    opacity: 0,
+  }, "+=.5")
+  .from(item.querySelectorAll('[data-animation-subtitle] .char'), {
+    // y:random,
+    opacity: 0,
+    stagger: {
+      each: .0035
+    }
+  }, "-=1.5")
+  .from(item.querySelectorAll('[data-animation-text] .char'), {
+    // y:random,
+    opacity: 0,
+    stagger: {
+      each: .0035
+    }
+  }, "+=2")
+
+ScrollTrigger.create({
+  animation: tl,
+  trigger: item,
+  start: "top center",
+  end: "bottom top",
+})
 
 })
-.titleIn(title)
-// .textIn(titleParagraph, title)
-.textIn(subtitle, serviceItem)
-.textIn(subtitletwo, stageItem)
-.textIn(serviceParagraph, serviceItem)
-.textIn(stageParagraph, stageItem)
+
+
+
+
+
+
+
+
