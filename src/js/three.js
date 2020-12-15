@@ -82,7 +82,6 @@
 
 
 
-
 let canvas = document.querySelector(".object"),
     renderer = new THREE.WebGLRenderer({canvas});
 

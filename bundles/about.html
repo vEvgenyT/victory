@@ -8,7 +8,7 @@
   <title>Document</title>
 </head>
 
-<body class="wrapper preloader_srcoll-off">
+<body class="wrapper preloader_srcoll-off" data-scroll-container data-barba="wrapper">
 
 
   <!-- Прелоадер -->
@@ -26,12 +26,14 @@
   </div>
 
 
+
   <!-- Задний фон (шум) -->
   <canvas id="noise" class="noise"></canvas>
 
 
 
   <header class="header_position">
+
 
 
     <div id="obj" class="header header_size">
@@ -90,12 +92,13 @@
 
 </li> -->
 
+
 <li class="header__nav_style index-title__contacts_position">
-  <a href="#" class="button nav">
+  <a href="#" class="button nav" data-animation-canvas>
     <div class="button__deco button__deco--2"></div>
     <div class="button__deco button__deco--1"></div>
     <span>
-      <span class="button__text">Inst</span>
+      <span class="button__text">sound off</span>
     </span>
   </a>
 </li>
@@ -109,7 +112,7 @@
 
   </header>
 
-  <main class="">
+  <main data-barba="container" data-barba-namespace="home">
 
     <article data-scroll-container>
       <!-- <aside class="grid aside aside_style">
@@ -209,30 +212,30 @@
 
     </article>
   </main>
-  <footer class="grid footer block-gap-footer_size">
+  <footer class="grid footer block-gap-footer_size" data-scroll-section>
     <h3 class="h3 footer__title footer__title_style footer__title_position">Больше чем вы ожидаете.</h3>
     <ul class="footer__contacts">
       <ul class="footer__lnk-social">
         <li class="footer__lnk-social_style">
-          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
+          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position footer__lnk-social_position">
             <span>Facebook</span>
             <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
           </a>
         </li>
         <li class="footer__lnk-social_style">
-          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
+          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position footer__lnk-social_position">
             <span>Instagram</span>
             <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
           </a>
         </li>
         <li class="footer__lnk-social_style">
-          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
+          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position footer__lnk-social_position">
             <span>Behance</span>
             <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
           </a>
         </li>
         <li class="footer__lnk-social_style">
-          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
+          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position footer__lnk-social_position">
             <span>LinkedIn</span>
             <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
           </a>
@@ -240,25 +243,25 @@
       </ul>
       <ul class="footer__lnk-chat">
         <li class="footer__lnk-social_style">
-          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
+          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position footer__lnk-chat_position">
             <span>Viber</span>
             <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
           </a>
         </li>
         <li class="footer__lnk-social_style">
-          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
+          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position footer__lnk-chat_position">
             <span>Telegram</span>
             <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
           </a>
         </li>
         <li class="footer__lnk-social_style">
-          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
+          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position footer__lnk-chat_position">
             <span>WhatsApp</span>
             <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
           </a>
         </li>
         <li class="footer__lnk-social_style">
-          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
+          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position footer__lnk-chat_position">
             <span>Send e-mail</span>
             <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
           </a>
@@ -276,8 +279,28 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/EventEmitter/5.2.8/EventEmitter.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.com/libraries/buzz"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
   <!-- <script type="text/javascript" src="https://unpkg.com/three@0.85.0/examples/js/controls/OrbitControls.js"></script> -->
   <script type="text/javascript" src="js/index.min.js"></script>
+
+<!-- <script type="text/javascript">
+      barba.init({
+        transitions: [{
+          name: 'opacity-transition',
+          leave(data) {
+            return gsap.to(data.current.container, {
+              opacity: 0
+            });
+          },
+          enter(data) {
+            return gsap.from(data.next.container, {
+              opacity: 0
+            });
+          }
+        }]
+      });
+    </script> -->
+
 
 <!--   <script>
     const scroll = new LocomotiveScroll({

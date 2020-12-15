@@ -79,15 +79,15 @@ var path = {
         js: [
           // 'src/**/*.js',
           'src/**/js/**/base.js',
-          'src/**/js/**/offscroll.js',
-          'src/**/js/**/preloader.js',
+          'src/**/js/**/locomotive.js',
+          'src/**/js/**/buzz.js',
           'src/**/js/**/noise.js',
-          'src/**/js/**/scrollanimation.js',
-          'src/**/js/**/checkbox.js',
+          'src/**/js/**/preloader.js',
+          'src/**/js/**/offscroll.js',
           'src/**/js/**/three.js',
-          'src/**/js/**/btn.js',
-          // 'src/**/js/**/locomotive.js',
-          // 'src/**/js/**/buzz.js'
+          // 'src/**/js/**/checkbox.js',
+          // 'src/**/js/**/btn.js',
+          'src/**/js/**/scrollanimation.js',
         ],
         img: 'src/img/**/*.*',
         imgWebpIn: [

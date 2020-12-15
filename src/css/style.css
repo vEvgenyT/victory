@@ -88,7 +88,7 @@
   left: 0;
   bottom: 0;
   z-index: -100;
-  display: none;
+  display: inline-block;
   /*grid-area: object;*/
 }
 
@@ -648,22 +648,22 @@
 .footer__lnk-social {
   grid-area: social;
   display: flex;
-  /*justify-content: space-between;*/
+  justify-content: flex-end;
 }
 .footer__lnk-social_size {}
 .footer__lnk-social_style {
   list-style-type: none;
-  margin: 0 15px 0 0;
+  /*margin: 0 0 0 15px;*/
 }
 .footer__lnk-social_position {
-  margin: 0 15px 0 0;
+  margin: 0 0 0 15px;
 }
 
 
 .footer__lnk-chat {
   grid-area: chat;
   display: flex;
-  /*justify-content: space-between;*/
+  justify-content: flex-end;
 }
 .footer__lnk-chat_size {}
 .footer__lnk-chat_style {
@@ -671,7 +671,7 @@
   text-decoration: none;
 }
 .footer__lnk-chat_position {
-  margin: 0 15px 0 0;
+  margin: 0 0 0 15px;
 }
 
 .footer-lnk_style {

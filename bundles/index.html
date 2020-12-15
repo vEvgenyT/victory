@@ -8,7 +8,7 @@
   <title>Document</title>
 </head>
 
-<body class="wrapper preloader_srcoll-off">
+<body class="wrapper preloader_srcoll-off" data-scroll-container data-barba="wrapper">
 
 
   <!-- Прелоадер -->
@@ -26,12 +26,14 @@
   </div>
 
 
+
   <!-- Задний фон (шум) -->
   <canvas id="noise" class="noise"></canvas>
 
 
 
   <header class="header_position">
+
 
 
     <div id="obj" class="header header_size">
@@ -90,12 +92,13 @@
 
 </li> -->
 
+
 <li class="header__nav_style index-title__contacts_position">
-  <a href="#" class="button nav">
+  <a href="#" class="button nav" data-animation-canvas>
     <div class="button__deco button__deco--2"></div>
     <div class="button__deco button__deco--1"></div>
     <span>
-      <span class="button__text">Inst</span>
+      <span class="button__text">sound off</span>
     </span>
   </a>
 </li>
@@ -109,7 +112,7 @@
 
   </header>
 
-  <main class="">
+  <main data-barba="container" data-barba-namespace="home">
 
     <article data-scroll-container>
       <!-- <aside class="grid aside aside_style">
@@ -192,11 +195,11 @@
 <section id="sectionOne" class="grid index-title block-gap-title_size" data-scroll-section data-animation-section>
 
 
-  <p id="subtitleOne" class="index-title__tag h3 index-title__tag_style index-title__tag_position" data-splitting data-animation-subtitle>Диджитализация</p>
+  <p class="index-title__tag h3 index-title__tag_style index-title__tag_position" data-splitting data-animation-subtitle>Диджитализация</p>
 
   <h1 id="titleOne" class="index-title__h1 h1 index-title__h1_style index-title__h1_style-2 index-title__h1_position" data-animation-header><span class="transform">Веб-сайты без головной боли.</span></h1>
 
-  <p id="textOne" class="index-title__paragraph p index-title__paragraph_style index-title__paragraph_position" data-splitting data-animation-text>Трансформирую бизнес-процессы в продукты с продуманной структурой, и дизайном на стыке технологий и исскуства.</p>
+  <p id="textOne" class="index-title__paragraph p index-title__paragraph_style index-title__paragraph_position" data-splitting data-animation-text >Трансформирую бизнес-процессы в продукты с продуманной структурой, и дизайном на стыке технологий и исскуства.</p>
 
   <!-- <figure class="index-title__img">
     <picture>
@@ -204,7 +207,7 @@
     </picture>
   </figure> -->
 
-  <canvas id="obj" class="object"></canvas>
+  <canvas class="object" data-animation-canvas></canvas>
 
 <!--   <div class="index-title__controls"> -->
 
@@ -225,7 +228,7 @@
 
 </section>
 
-<section class="block-gap_size" data-animation-section>
+<section class="block-gap_size" data-scroll-section data-animation-section>
   <h2 class="visually-hidden">Портфолио</h2>
 
   <ul class="index-folio_size">
@@ -278,7 +281,7 @@
                   srcset="img/TabletInterior@3.png 3x,
                           img/TabletInterior@2.png 2x,
                           img/TabletInterior@1.png 1x"
-                  src="img/TabletInterior@1.png" alt="Архитектурное ателье/Банковские пластиковые карточки" class="index-folio__img_size">
+                  src="img/TabletInterior@1.png" alt="Архитектурное ателье/Банковские пластиковые карточки" class="index-folio__img_size" data-animation-folio>
 
         </picture>
 
@@ -331,7 +334,7 @@
                   srcset="img/PhoneBeard@3.png 3x,
                           img/PhoneBeard@2.png 2x,
                           img/PhoneBeard@1.png 1x"
-                  src="img/PhoneBeard@1.png" alt="Юмористический сервис БОРОДА/Архитектурное ателье" class="index-folio__img_size">
+                  src="img/PhoneBeard@1.png" alt="Юмористический сервис БОРОДА/Архитектурное ателье" class="index-folio__img_size" data-animation-folio>
 
         </picture>
 
@@ -384,7 +387,7 @@
                   srcset="img/PhoneSM@3.png 3x,
                           img/PhoneSM@2.png 2x,
                           img/PhoneSM@1.png 1x"
-                  src="img/PhoneSM@1.png" alt="Банковские пластиковые карточки/Сервис доставки еды" class="index-folio__img_size">
+                  src="img/PhoneSM@1.png" alt="Банковские пластиковые карточки/Сервис доставки еды" class="index-folio__img_size" data-animation-folio>
 
         </picture>
 
@@ -442,7 +445,7 @@
                   srcset="img/DesktopGrill@3.png 3x,
                           img/DesktopGrill@2.png 2x,
                           img/DesktopGrill@1.png 1x"
-                  src="img/DesktopGrill@1.png" alt="Сервис доставки еды/Животные занесенные в красную книгу" class="index-folio__img_size">
+                  src="img/DesktopGrill@1.png" alt="Сервис доставки еды/Животные занесенные в красную книгу" class="index-folio__img_size" data-animation-folio>
 
         </picture>
 
@@ -496,7 +499,7 @@
                   srcset="img/TabletRR@3.png 3x,
                           img/TabletRR@2.png 2x,
                           img/TabletRR@1.png 1x"
-                  src="img/TabletRR@1.png" alt="Сайт посвященный автомобилям RR" class="index-folio__img_size">
+                  src="img/TabletRR@1.png" alt="Сайт посвященный автомобилям RR" class="index-folio__img_size" data-animation-folio>
 
         </picture>
 
@@ -549,7 +552,7 @@
                   srcset="img/PhoneInterior@3.png 3x,
                           img/PhoneInterior@2.png 2x,
                           img/PhoneInterior@1.png 1x"
-                  src="img/PhoneInterior@1.png" alt="Мобильная версия сайта Архитектурного ателье/Юмористический сервис БОРОДА" class="index-folio__img_size">
+                  src="img/PhoneInterior@1.png" alt="Мобильная версия сайта Архитектурного ателье/Юмористический сервис БОРОДА" class="index-folio__img_size" data-animation-folio>
 
         </picture>
 
@@ -606,7 +609,7 @@
                   srcset="img/PhoneRR@3.png 3x,
                           img/PhoneRR@2.png 2x,
                           img/PhoneRR@1.png 1x"
-                  src="img/PhoneRR@1.png" alt="Мобильная версия сайта посвященого автомобилям RR/Сайт сериала ДРУЗЬЯ" class="index-folio__img_size">
+                  src="img/PhoneRR@1.png" alt="Мобильная версия сайта посвященого автомобилям RR/Сайт сериала ДРУЗЬЯ" class="index-folio__img_size" data-animation-folio>
 
         </picture>
 
@@ -660,7 +663,7 @@
                   srcset="img/DesktopWild@3.png 3x,
                           img/DesktopWild@2.png 2x,
                           img/DesktopWild@1.png 1x"
-                  src="img/DesktopWild@1.png" alt="Животные занесенные в красную книгу/Мобильная версия сайта Архитектурного ателье" class="index-folio__img_size">
+                  src="img/DesktopWild@1.png" alt="Животные занесенные в красную книгу/Мобильная версия сайта Архитектурного ателье" class="index-folio__img_size" data-animation-folio>
 
         </picture>
 
@@ -714,7 +717,7 @@
                   srcset="img/TabletFriends@3.png 3x,
                           img/TabletFriends@2.png 2x,
                           img/TabletFriends@1.png 1x"
-                  src="img/TabletFriends@1.png" alt="Сайт сериала ДРУЗЬЯ/Концепция сайта для банка" class="index-folio__img_size">
+                  src="img/TabletFriends@1.png" alt="Сайт сериала ДРУЗЬЯ/Концепция сайта для банка" class="index-folio__img_size" data-animation-folio>
 
         </picture>
 
@@ -771,7 +774,7 @@
                   srcset="img/DesktopSM@3.png 3x,
                           img/DesktopSM@2.png 2x,
                           img/DesktopSM@1.png 1x"
-                  src="img/DesktopSM@1.png" alt="Концепция сайта для банка/Мобильная версия сайта посвященого автомобилям RR" class="index-folio__img_size">
+                  src="img/DesktopSM@1.png" alt="Концепция сайта для банка/Мобильная версия сайта посвященого автомобилям RR" class="index-folio__img_size" data-animation-folio>
 
         </picture>
 
@@ -825,7 +828,7 @@
                   srcset="img/DesktopInterior@3.png 3x,
                           img/DesktopInterior@2.png 2x,
                           img/DesktopInterior@1.png 1x"
-                  src="img/DesktopInterior@1.png" alt="Главный экран сайта Архитектурного ателье" class="index-folio__img_size">
+                  src="img/DesktopInterior@1.png" alt="Главный экран сайта Архитектурного ателье" class="index-folio__img_size" data-animation-folio>
 
         </picture>
 
@@ -878,7 +881,7 @@
                   srcset="img/TabletSM@3.png 3x,
                           img/TabletSM@2.png 2x,
                           img/TabletSM@1.png 1x"
-                  src="img/TabletSM@1.png" alt="Раздел корпоративных клиентов на концепции сайта для банка" class="index-folio__img_size">
+                  src="img/TabletSM@1.png" alt="Раздел корпоративных клиентов на концепции сайта для банка" class="index-folio__img_size" data-animation-folio>
 
         </picture>
 
@@ -891,7 +894,7 @@
 
   <ul class="grid index-folio__lnk">
 
-  <li class="header__nav_style index-folio__contacts" id="obj" data-animation-obj>
+  <li class="header__nav_style index-folio__contacts">
   <a href="#" class="button nav">
     <div class="button__deco button__deco--2"></div>
     <div class="button__deco button__deco--1"></div>
@@ -901,7 +904,7 @@
   </a>
 </li>
 
-<li class="header__nav_style index-folio__contacts" id="obj" data-animation-obj>
+<li class="header__nav_style index-folio__contacts">
   <a href="#" class="button nav">
     <div class="button__deco button__deco--2"></div>
     <div class="button__deco button__deco--1"></div>
@@ -937,7 +940,7 @@
 
 
 
-<section class="grid index-service block-gap_size" data-animation-section>
+<section class="grid index-service block-gap_size" data-scroll-section data-animation-section>
 
   <h2 id="title" class="h1 index-service__title index-service__title_style-1 index-service__title_style-2 index-service__title_position" data-animation-header>
     <span class="index-service__title_size">Промо</span>
@@ -964,7 +967,7 @@
 
 </section>
 
-<section class="grid index-stages block-gap_size" data-animation-section>
+<section class="grid index-stages block-gap_size" data-scroll-section data-animation-section>
 
 
   <h2 id="title" class="h1 index-stages__title index-stages__title_style-1 index-stages__title_style-2 index-stages__title_position" data-animation-header>Как я работаю</h2>
@@ -992,30 +995,30 @@
 
     </article>
   </main>
-  <footer class="grid footer block-gap-footer_size">
+  <footer class="grid footer block-gap-footer_size" data-scroll-section>
     <h3 class="h3 footer__title footer__title_style footer__title_position">Больше чем вы ожидаете.</h3>
     <ul class="footer__contacts">
       <ul class="footer__lnk-social">
         <li class="footer__lnk-social_style">
-          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
+          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position footer__lnk-social_position">
             <span>Facebook</span>
             <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
           </a>
         </li>
         <li class="footer__lnk-social_style">
-          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
+          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position footer__lnk-social_position">
             <span>Instagram</span>
             <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
           </a>
         </li>
         <li class="footer__lnk-social_style">
-          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
+          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position footer__lnk-social_position">
             <span>Behance</span>
             <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
           </a>
         </li>
         <li class="footer__lnk-social_style">
-          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
+          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position footer__lnk-social_position">
             <span>LinkedIn</span>
             <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
           </a>
@@ -1023,25 +1026,25 @@
       </ul>
       <ul class="footer__lnk-chat">
         <li class="footer__lnk-social_style">
-          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
+          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position footer__lnk-chat_position">
             <span>Viber</span>
             <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
           </a>
         </li>
         <li class="footer__lnk-social_style">
-          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
+          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position footer__lnk-chat_position">
             <span>Telegram</span>
             <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
           </a>
         </li>
         <li class="footer__lnk-social_style">
-          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
+          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position footer__lnk-chat_position">
             <span>WhatsApp</span>
             <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
           </a>
         </li>
         <li class="footer__lnk-social_style">
-          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
+          <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position footer__lnk-chat_position">
             <span>Send e-mail</span>
             <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
           </a>
@@ -1059,8 +1062,28 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/EventEmitter/5.2.8/EventEmitter.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.com/libraries/buzz"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
   <!-- <script type="text/javascript" src="https://unpkg.com/three@0.85.0/examples/js/controls/OrbitControls.js"></script> -->
   <script type="text/javascript" src="js/index.min.js"></script>
+
+<!-- <script type="text/javascript">
+      barba.init({
+        transitions: [{
+          name: 'opacity-transition',
+          leave(data) {
+            return gsap.to(data.current.container, {
+              opacity: 0
+            });
+          },
+          enter(data) {
+            return gsap.from(data.next.container, {
+              opacity: 0
+            });
+          }
+        }]
+      });
+    </script> -->
+
 
 <!--   <script>
     const scroll = new LocomotiveScroll({

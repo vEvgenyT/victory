@@ -970,8 +970,8 @@
 });
 
 
-var sound = new buzz.sound("/sound/button", {
-    formats: [ "wav" ],
+var sound = new buzz.sound("/sound/background", {
+    formats: [ "mp3" ],
     autoplay: true,
     loop: true
 });
