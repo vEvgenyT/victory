@@ -100,9 +100,9 @@
 
 .index-title__contacts_position {
   /*top: 70vh;*/
-  bottom: 200px;
+  bottom: 50px;
   position: fixed;
-  right: 15px;
+  right: 50px;
 }
 
 /*@media only screen and (min-width: 1105px) {

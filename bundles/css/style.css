@@ -637,7 +637,7 @@ html.has-scroll-dragging {
 
 .object {
   bottom: 0;
-  display: inline-block;
+  display: none;
   height: 100vh;
   left: 0;
   position: absolute;
@@ -645,7 +645,37 @@ html.has-scroll-dragging {
   top: 0;
   width: 100vw;
   z-index: -100;
+  /*display: inline-block;*/
   /*grid-area: object;*/
+}
+
+#waves {
+  /*right: 50px;*/
+  /*top: 70vh;*/
+  bottom: 25px;
+  cursor: pointer;
+  position: fixed;
+}
+
+.header__waves {
+  list-style: none;
+}
+
+.header__waves_text {
+  bottom: 52px;
+  color: var(--grey50);
+  opacity: 0;
+  position: fixed;
+  /*display: none;*/
+  transition: opacity .85s cubic-bezier(.4,0,0,1);
+  z-index: -100;
+}
+
+.header__waves:hover .header__waves_text {
+  opacity: 1;
+  /*display: inline-block;*/
+  transition: opacity .85s cubic-bezier(.4,0,0,1);
+  /*opacity: 0;*/
 }
 
 /*--------------------- PRELOADER -------------------*/
