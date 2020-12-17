@@ -25,163 +25,60 @@
   <header class="header_position">
 
 
-
     <div id="obj" class="header header_size">
 
+
+      <!-- Логотип -->
       <a href="http://localhost:3000/" class="header__img_size">
         <img src="img/logo.svg" alt="#" class="header__img_size">
       </a>
-
+      <!-- ==================== -->
 
 
 
       <!-- Переключение языка -->
       <ul class="header__lng">
-
-
-          <li class="header__nav_style">
-
-            <a href="#" class="nav header__nav_style header__nav_style-arrow">RU</a>
-
+        <li class="header__nav_style">
+          <a href="#" class="nav header__nav_style header__nav_style-arrow">RU</a>
             <ul class="header__lng_position header__lng_style">
               <li class="header__nav_style header__lng_size">
-                <a href="#" class="nav header__nav_style header__nav_style-animation">EN</a>
+                <a aria-label="ссылка на английскую версию сайта" href="#" class="nav header__nav_style header__nav_style-animation">EN</a>
               </li>
               <li class="header__nav_style">
-                <a href="#" class="nav header__nav_style header__nav_style-animation">UA</a>
+                <a aria-label="ссылка на украинскую версию сайта" href="#" class="nav header__nav_style header__nav_style-animation">UA</a>
               </li>
             </ul>
-
           </li>
-
-
       </ul>
+      <!-- ==================== -->
 
 
 
+      <!-- Навигация -->
+      <nav class="header__nav">
+        <ul itemscope itemtype="https://schema.org/SiteNavigationElement" role="menu" >
+          <li itemprop="name" role="none" class="header__nav_style">
+            <a itemprop="url" role="menuitem" aria-label="ссылка на раздел 'Обо мне'" href="http://localhost:3000/about.html" class="nav nav-lnk_style nav-lnk_size nav-lnk_position">
+              <span id="sound">Обо мне</span>
+              <span class="nav-lnk__line_style nav-lnk__line_size nav-lnk__line_position"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- ==================== -->
 
 
 
+      <!-- Кнопка выключения звука -->
+      <button id="btnwaves">
+        <canvas id="waves" width="100px" height="75px"></canvas>
+        <span class="header__waves_text">Звук</span>
+      </button>
 
-    <nav class="header__nav">
-      <ul>
-        <li class="header__nav_style">
-          <!-- <a href="#" class="nav header__nav_style header__nav_style-animation">Обо мне</a> -->
-          <a href="http://localhost:3000/about.html" class="nav nav-lnk_style nav-lnk_size nav-lnk_position">
-            <span id="sound">Обо мне</span>
-            <span class="nav-lnk__line_style nav-lnk__line_size nav-lnk__line_position"></span>
-          </a>
-        </li>
-            <!--  <a href="#" class="a index-title__contacts_style index-title__contacts_size index-title__contacts_position"><img src="img/arrow-2.svg" alt="#" class="index-title__contacts-arrow">Контакты</a> -->
-<!--         <li class="header__nav_style">
-
-<input type="checkbox" id="checkbox" class="checkbox checkbox_hidden">
-        <label id="obj" for="checkbox">
-<span href="#" class="a index-title__contacts_style index-title__contacts_size index-title__contacts_position"><img src="img/arrow-2.svg" alt="#" class="index-title__contacts-arrow">Контакты</span>
-        </label>
-
-</li> -->
-
-
-<!-- <li class="header__nav_style index-title__contacts_position">
-  <a href="#" class="button nav" data-animation-canvas>
-    <div class="button__deco button__deco--2"></div>
-    <div class="button__deco button__deco--1"></div>
-    <span>
-      <span class="button__text">sound off</span>
-    </span>
-  </a>
-</li> -->
-<li class="header__waves nav">
-  <span class="header__waves_text">sounds</span>
-  <canvas id="waves" width="100px" height="75px"></canvas>
-</li>
-
-
-      </ul>
-    </nav>
-
-</div>
-
+    </div>
 
   </header>
 
   <main data-barba="container" data-barba-namespace="home">
 
     <article data-scroll-container>
-      <!-- <aside class="grid aside aside_style">
-        <h4 class="p aside-title aside-title_style aside-title_position">Say hello</h4>
-        <ul class="aside-item__social">
-          <li class="aside-item_style aside-item aside-item__mail">
-            <a href="#" class="h3 footer-lnk_style footer-lnk_size footer-lnk_position">
-              <span>hello@victory.net.ua</span>
-              <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
-            </a>
-          </li>
-          <li class="aside-item_style aside-item">
-            <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
-              <span>Facebook</span>
-              <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
-            </a>
-          </li>
-          <li class="aside-item_style aside-item">
-            <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
-              <span>Instagram</span>
-              <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
-            </a>
-          </li>
-          <li class="aside-item_style aside-item">
-            <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
-              <span>Behance</span>
-              <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
-          </a>
-          </li>
-          <li class="aside-item_style aside-item">
-            <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
-              <span>Medium</span>
-              <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
-          </a>
-          </li>
-        </ul>
-        <ul class="aside-item__chat">
-          <li class="aside-item_style aside-item"></li>
-          <li class="aside-item_style aside-item">
-            <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
-              <span>Viber</span>
-              <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
-            </a>
-          </li>
-          <li class="aside-item_style aside-item">
-            <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
-              <span>Telegram</span>
-              <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
-            </a>
-          </li>
-          <li class="aside-item_style aside-item">
-            <a href="#" class="nav footer-lnk_style footer-lnk_size footer-lnk_position">
-              <span>WhatsApp</span>
-              <span class="footer-lnk__line_style footer-lnk__line_size footer-lnk__line_position"></span>
-            </a>
-          </li>
-        </ul>
-      </aside> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

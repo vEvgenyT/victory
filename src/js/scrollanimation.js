@@ -92,7 +92,8 @@ ScrollTrigger.create({
   animation: tl,
   trigger: item,
   start: "top center-=100px",
-  // markers: true
+  // markers: true,
+  // pin: true
 })
 
 })

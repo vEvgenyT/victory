@@ -970,19 +970,18 @@
 });
 
 
-var sound = new buzz.sound("/sound/background", {
+const sound = new buzz.sound("/sound/background", {
     formats: [ "mp3" ],
-    autoplay: true,
-    loop: true
+    // autoplay: true,
+    // loop: true,
+    // volume: 1,
+    webAudioApi: true,
+    preload: true
 });
 
 sound.play()
      .fadeIn()
      .loop()
-     .bind("timeupdate", function() {
-        var timer = buzz.toTimer(this.getTime());
-        document.getElementById("timer").innerHTML = timer;
-     });
 
 
 

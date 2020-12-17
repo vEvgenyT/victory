@@ -72,6 +72,11 @@
   top: 28px;
 }
 
+.index-folio__button_style {
+  border: 1px solid var(--grey50);
+  border-radius: 50%;
+}
+
 
 /*.follow {
   color: var(--grey35);
@@ -92,7 +97,7 @@
   width: 0px;
   height: 0px;
   background-color: var(--grey20);
-  /*scaleX: 0.5;*/
+  /*scaleX: 0.5;
   line-height: 100px;
   /*align-items: center;*/
   border-radius: 50%;

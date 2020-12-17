@@ -812,12 +812,40 @@ var waves = new SineWaves({
 
 
 
-document.querySelector('#waves').style.right =  document.querySelector('#obj').getBoundingClientRect().x + "px";
+document.querySelector('#btnwaves').style.right =  document.querySelector('#obj').getBoundingClientRect().x + "px";
 
 document.querySelector('.header__waves_text').style.right =  document.querySelector('#obj').getBoundingClientRect().x + 100 + "px";
 
 window.addEventListener('resize', () => {
-  document.querySelector('#waves').style.right =  document.querySelector('#obj').getBoundingClientRect().x + "px";
+  document.querySelector('#btnwaves').style.right =  document.querySelector('#obj').getBoundingClientRect().x + "px";
   document.querySelector('.header__waves_text').style.right =  document.querySelector('#obj').getBoundingClientRect().x + 100 + "px";
 })
+
+
+
+
+
+
+document.querySelector('#btnwaves').addEventListener('click', () => {
+
+  let sines = waves.waves;
+
+      const buffer = [
+        '-30',
+        '30'
+      ];
+  sines.forEach((item, i, arr) => {
+    if (item.amplitude != 0) {
+      item.amplitude = 0;
+      sound.pause();
+    }
+    else {
+      item.amplitude = buffer[i];
+      sound.play();
+    }
+  })
+})
+
+
+
 
