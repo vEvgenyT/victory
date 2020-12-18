@@ -80,7 +80,7 @@ var path = {
           // 'src/**/*.js',
           'src/**/js/**/base.js',
           'src/**/js/**/locomotive.js',
-          'src/**/js/**/buzz.js',
+          // 'src/**/js/**/buzz.js',
           'src/**/js/**/noise.js',
           'src/**/js/**/preloader.js',
           'src/**/js/**/offscroll.js',

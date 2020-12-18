@@ -88,8 +88,8 @@
   left: 0;
   bottom: 0;
   z-index: -100;
-  display: none;
-  /*display: inline-block;*/
+  /*display: none;*/
+  display: inline-block;
   /*grid-area: object;*/
 }
 
