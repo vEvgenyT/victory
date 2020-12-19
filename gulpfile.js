@@ -299,7 +299,10 @@ gulp.task('/sound', async function() {
 });
 
 // -= ******************************************************** =- \\
-
+gulp.task('/manifest', async function() {
+    return gulp.src(['src/**/victory.webmanifest', 'src/**/browserconfig.xml', 'src/**/favicon.ico'])
+    .pipe(gulp.dest(path.bundles.html));
+});
 
 
 // IMAGE ///////////////////////////////////////////////////////////
@@ -361,6 +364,8 @@ gulp.task('/run', ['/browser-sync'], function() {
     gulp.watch(path.watch.fonts, browserSync.reload);
     gulp.watch(path.watch.img, ['/img'])
     gulp.watch(path.watch.img, browserSync.reload);
+    gulp.watch(path.watch.img, ['/manifest'])
+    gulp.watch(path.watch.img, browserSync.reload);
 });
 
 gulp.task('/runIndex', ['/browser-sync'], function() {
@@ -376,6 +381,8 @@ gulp.task('/runIndex', ['/browser-sync'], function() {
     gulp.watch(path.watch.img, browserSync.reload);
     gulp.watch(path.watch.sound, ['/sound'])
     gulp.watch(path.watch.sound, browserSync.reload);
+    gulp.watch(path.watch.img, ['/manifest'])
+    gulp.watch(path.watch.img, browserSync.reload);
 });
 
 gulp.task('/runAbout', ['/browser-sync'], function() {
@@ -389,6 +396,10 @@ gulp.task('/runAbout', ['/browser-sync'], function() {
     gulp.watch(path.watch.fonts, browserSync.reload);
     gulp.watch(path.watch.img, ['/img'])
     gulp.watch(path.watch.img, browserSync.reload);
+    gulp.watch(path.watch.sound, ['/sound'])
+    gulp.watch(path.watch.sound, browserSync.reload);
+    gulp.watch(path.watch.img, ['/manifest'])
+    gulp.watch(path.watch.img, browserSync.reload);
 });
 
 // -= ******************************************************** =- \\
@@ -397,7 +408,7 @@ gulp.task('/runAbout', ['/browser-sync'], function() {
 gulp.task('/compile', ['/css', '/js', '/html', '/img', '/fonts']);
 gulp.task('/interpret', ['/css', '/js', '/html', '/img', '/fonts', '/run']);
 
-gulp.task('/index', ['/runIndex', '/indexHtml', '/js', '/baseCss', '/indexCss', '/fonts', '/sound', '/about']);
+gulp.task('/index', ['/runIndex', '/indexHtml', '/js', '/baseCss', '/indexCss', '/fonts', '/sound', '/about', '/manifest']);
 
 gulp.task('/about', ['/runAbout', '/aboutHtml', '/js', '/baseCss', '/aboutCss', '/imgCopy', '/fonts']);
 

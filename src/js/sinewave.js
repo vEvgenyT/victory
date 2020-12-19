@@ -771,17 +771,17 @@ var waves = new SineWaves({
 
   // An array of wave options
   waves: [
-    {
-      timeModifier: 1,
-      lineWidth: .5,
-      amplitude: -30,
-      wavelength: 10,
-      segmentLength: 3,
-    },
+    // {
+    //   timeModifier: 1,
+    //   lineWidth: .5,
+    //   amplitude: -30,
+    //   wavelength: 10,
+    //   segmentLength: 3,
+    // },
     {
       timeModifier: 1,
       lineWidth: 1.5,
-      amplitude: 30,
+      amplitude: 22,
       wavelength: 10,
       segmentLength: 1,
     },
@@ -830,20 +830,14 @@ document.querySelector('#btnwaves').addEventListener('click', () => {
 
   let sines = waves.waves;
 
-      const buffer = [
-        '-30',
-        '30'
-      ];
-  sines.forEach((item, i, arr) => {
-    if (item.amplitude != 0) {
-      item.amplitude = 0;
-      sound.pause();
-    }
-    else {
-      item.amplitude = buffer[i];
+  if (sines[0].amplitude != 0 && sound.isPlaying) {
+    sines[0].amplitude = 0;
+    sound.pause();
+  } else {
+      sines[0].amplitude = 22;
       sound.play();
-    }
-  })
+  }
+
 })
 
 
