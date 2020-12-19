@@ -22,6 +22,9 @@ var gulp = require('gulp'),
     shorthand = require('gulp-shorthand'), //сокращение стилей для которых доступен shorthand
     imagemin = require('gulp-imagemin'), // минификация изображений
     imageminWebp = require('imagemin-webp'),//конвертация изображений в новый формат
+    imageminOptipng = require('imagemin-optipng'), //минификация png
+    tinypng = require('gulp-tinypng-extended'), //продвинутый минификатор
+    imageminSvgo = require('imagemin-svgo'),
     htmlmin = require('gulp-htmlmin'),
     extReplace = require("gulp-ext-replace");
 const gcc = require('google-closure-compiler').gulp(); // оптимизация и сжатие JS кода
@@ -92,11 +95,19 @@ var path = {
         ],
         img: 'src/img/**/*.*',
         imgWebpIn: [
-          // 'src/img/*.png',
-          // 'src/img/*.jpg',
-          'src/img/*.*'
+          'src/img/**/*.png',
+          'src/img/**/*.jpg',
+          '!src/img/**/favicon/**/*.*',
         ],
-        // imgWebpOut: 'src/img/',
+        imgSvgIn: [
+          'src/img/**/*.svg',
+        ],
+        imgPngIn: [
+          'src/img/**/*.png',
+        ],
+        imgJpgIn: [
+          'src/img/**/*.jpg',
+        ],
         fonts: 'src/fonts/**/*.*',
         sound: 'src/sound/**/*.*'
     },
@@ -173,6 +184,10 @@ gulp.task('/delimg', function() {
 
 gulp.task('/delfonts', function() {
   return clear(['bundles/fonts/**/*.*']);
+});
+
+gulp.task('/deltest', function() {
+  return clear(['bundles/test/**/*.*']);
 });
 
 
@@ -333,6 +348,43 @@ gulp.task('/webp', async function() {
 // -= ******************************************************** =- \\
 
 
+gulp.task('/imgJpg', ['/delimg'], async function() {
+    return gulp.src(path.src.imgJpgIn)
+    .pipe(imagemin())
+    .pipe(gulp.dest(path.bundles.img));
+});
+
+gulp.task('/imgPng', async function() {
+    return gulp.src(path.src.imgPngIn)
+    .pipe(tinypng({
+      key: '8YhnmY39SNgbQ1W2J9DMQswsbBP4K9hy',
+    }))
+    .pipe(gulp.dest(path.bundles.img));
+});
+
+gulp.task('/imgWebp', async function() {
+    return gulp.src(path.src.imgWebpIn)
+    .pipe(imagemin([
+      imageminWebp({
+        quality: 70
+      })
+    ]))
+    .pipe(extReplace(".webp"))
+    .pipe(gulp.dest(path.bundles.img));
+});
+
+gulp.task('/imgSvg', async function() {
+    return gulp.src(path.src.imgSvgIn)
+    .pipe(imagemin([
+      imageminSvgo({
+        removeViewBox: false
+      })
+    ]))
+    .pipe(gulp.dest(path.bundles.img));
+});
+
+
+gulp.task('/imgProduction', ['/imgJpg', '/imgPng', '/imgWebp', '/imgSvg']);
 
 ////////////////////////////////////////////
 ///
@@ -362,7 +414,7 @@ gulp.task('/run', ['/browser-sync'], function() {
     gulp.watch(path.watch.js, browserSync.reload);
     gulp.watch(path.watch.fonts, ['/fonts'])
     gulp.watch(path.watch.fonts, browserSync.reload);
-    gulp.watch(path.watch.img, ['/img'])
+    gulp.watch(path.watch.img, ['/imgCopy'])
     gulp.watch(path.watch.img, browserSync.reload);
     gulp.watch(path.watch.img, ['/manifest'])
     gulp.watch(path.watch.img, browserSync.reload);
@@ -377,7 +429,7 @@ gulp.task('/runIndex', ['/browser-sync'], function() {
     gulp.watch(path.watch.js, browserSync.reload);
     gulp.watch(path.watch.fonts, ['/fonts'])
     gulp.watch(path.watch.fonts, browserSync.reload);
-    gulp.watch(path.watch.img, ['/img'])
+    gulp.watch(path.watch.img, ['/imgCopy'])
     gulp.watch(path.watch.img, browserSync.reload);
     gulp.watch(path.watch.sound, ['/sound'])
     gulp.watch(path.watch.sound, browserSync.reload);
@@ -394,7 +446,7 @@ gulp.task('/runAbout', ['/browser-sync'], function() {
     gulp.watch(path.watch.js, browserSync.reload);
     gulp.watch(path.watch.fonts, ['/fonts'])
     gulp.watch(path.watch.fonts, browserSync.reload);
-    gulp.watch(path.watch.img, ['/img'])
+    gulp.watch(path.watch.img, ['/imgCopy'])
     gulp.watch(path.watch.img, browserSync.reload);
     gulp.watch(path.watch.sound, ['/sound'])
     gulp.watch(path.watch.sound, browserSync.reload);

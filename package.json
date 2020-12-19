@@ -32,6 +32,9 @@
     "gulp-order": "^1.2.0",
     "gulp-postcss": "^8.0.0",
     "gulp-shorthand": "^1.1.0",
+    "gulp-tinypng-extended": "^3.0.1",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^8.0.0",
     "imagemin-webp": "^6.0.0",
     "postcss-uncss": "^0.17.0",
     "uncss": "^0.17.3"
