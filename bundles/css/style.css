@@ -638,7 +638,7 @@ html.has-scroll-dragging {
 
 .object {
   bottom: 0;
-  display: none;
+  display: inline-block;
   left: 0;
   position: absolute;
   right: 0;
@@ -1270,7 +1270,7 @@ html.has-scroll-dragging {
 }
 
 .footer-place {
-  color: var(--grey50);
+  color: var(--grey40);
   margin: 0 auto;
   grid-area: place;
 }

@@ -257,7 +257,7 @@
 
 
 
-
+// function initCanvas() {
 
 let canvas = document.querySelector(".object"),
     renderer = new THREE.WebGLRenderer({canvas});
@@ -294,7 +294,7 @@ audioLoader.load( 'sound/background.mp3', function( buffer ) {
   sound.setBuffer( buffer );
   sound.setLoop( true );
   sound.setVolume( 0.35 );
-  sound.play();
+  sound.pause();
   sound.autoplay = true;
 });
 
@@ -351,3 +351,5 @@ function render(time) {
 }
 
 requestAnimationFrame(render);
+
+// }

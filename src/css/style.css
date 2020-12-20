@@ -80,7 +80,7 @@
 }
 
 .object {
-  display: none;
+  display: inline-block;
   position: absolute;
   top: 0;
   left: 0;
@@ -119,7 +119,6 @@ appearance: none;
   transition: opacity .85s cubic-bezier(.4,0,0,1);
   opacity: 1;
 }
-
 
 
 
@@ -748,7 +747,7 @@ appearance: none;
 
 .footer-place {
   grid-area: place;
-  color: var(--grey50);
+  color: var(--grey40);
   margin: 0 auto;
 }
 

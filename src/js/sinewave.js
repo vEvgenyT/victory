@@ -781,7 +781,7 @@ var waves = new SineWaves({
     {
       timeModifier: 1,
       lineWidth: 1.5,
-      amplitude: 22,
+      amplitude: 0,
       wavelength: 10,
       segmentLength: 1,
     },
@@ -823,8 +823,9 @@ window.addEventListener('resize', () => {
 
 
 
-
-
+if (!sound.isPlaying) {
+  waves.waves[0].amplitude = 0;
+}
 
 document.querySelector('#btnwaves').addEventListener('click', () => {
 
