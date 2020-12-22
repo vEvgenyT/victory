@@ -65,10 +65,10 @@
 }
 @media only screen and (min-width: 745px) {
   .block-gap_size {
-    margin: 0 0 225px 0;
+    margin: 0 0 300px 0;
   }
   .block-gap-title_size {
-    margin: 140px 0 225px 0;
+    margin: 25vh 0 300px 0;
   }
 }
 
@@ -93,18 +93,28 @@
   list-style-type: none;
 }
 
-#btnwaves {
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  position: fixed;
-  bottom: 25px;
-}
+
 
 #btnwaves:focus{
 outline: none;
 appearance: none;
 }
+
+#btnwaves {
+    background: transparent;
+    border: none;
+    bottom: 25px;
+    cursor: pointer;
+    position: fixed;
+    display: none;
+}
+@media only screen and (min-width: 745px) {
+#btnwaves {
+    display: inline-block;
+}
+}
+
+
 
 .header__waves_text {
   color: var(--grey50);
@@ -188,8 +198,8 @@ appearance: none;
 }
 
 .preload_out {
-  transition: transform 2.5s cubic-bezier(.4,0,0,1);
-  transform: translateY(-200vh);
+  transition: transform 1.75s cubic-bezier(.4,0,0,1);
+  transform: translateY(-100vh);
 }
 
 .preload__img_out {
@@ -633,7 +643,14 @@ appearance: none;
 .footer__title_size {}
 .footer__title_style {
   color: var(--grey40);
+  text-align: center;
 }
+@media only screen and (min-width: 745px) {
+  .footer__title_style {
+    text-align: left;
+  }
+}
+
 .footer__title_position {
   margin: 0;
 }
@@ -668,32 +685,56 @@ appearance: none;
 
 
 .footer__lnk-social {
-  grid-area: social;
   display: flex;
-  justify-content: flex-end;
+  grid-area: social;
+  justify-content: space-around;
 }
+@media only screen and (min-width: 745px) {
+.footer__lnk-social {
+    justify-content: flex-end;
+}
+}
+
+
 .footer__lnk-social_size {}
 .footer__lnk-social_style {
   list-style-type: none;
   /*margin: 0 0 0 15px;*/
 }
 .footer__lnk-social_position {
+  margin: 0;
+}
+@media only screen and (min-width: 745px) {
+.footer__lnk-social_position {
   margin: 0 0 0 15px;
+}
 }
 
 
 .footer__lnk-chat {
-  grid-area: chat;
-  display: flex;
+    display: flex;
+    grid-area: chat;
+    justify-content: space-around;
+}
+@media only screen and (min-width: 745px) {
+.footer__lnk-chat {
   justify-content: flex-end;
 }
+}
+.footer__lnk-chat_position {
+  margin: 0;
+}
+@media only screen and (min-width: 745px) {
+.footer__lnk-chat_position {
+  margin: 0 0 0 15px;
+}
+}
+
+
 .footer__lnk-chat_size {}
 .footer__lnk-chat_style {
   color: var(--grey20);
   text-decoration: none;
-}
-.footer__lnk-chat_position {
-  margin: 0 0 0 15px;
 }
 
 .footer-lnk_style {

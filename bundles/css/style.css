@@ -650,19 +650,20 @@ html.has-scroll-dragging {
   list-style: none;
 }
 
-#btnwaves {
-  background: transparent;
-  border: none;
-  bottom: 25px;
-  cursor: pointer;
-  position: fixed;
-}
-
 #btnwaves:focus {
   outline: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+#btnwaves {
+  background: transparent;
+  border: none;
+  bottom: 25px;
+  cursor: pointer;
+  display: none;
+  position: fixed;
 }
 
 .header__waves_text {
@@ -784,8 +785,8 @@ html.has-scroll-dragging {
 }
 
 .preload_out {
-  transform: translateY(-200vh);
-  transition: transform 2.5s cubic-bezier(.4,0,0,1);
+  transform: translateY(-100vh);
+  transition: transform 1.75s cubic-bezier(.4,0,0,1);
 }
 
 .preload__img_out {
@@ -1163,6 +1164,7 @@ html.has-scroll-dragging {
 
 .footer__title_style {
   color: var(--grey40);
+  text-align: center;
 }
 
 .footer__title_position {
@@ -1191,7 +1193,7 @@ html.has-scroll-dragging {
 .footer__lnk-social {
   display: flex;
   grid-area: social;
-  justify-content: flex-end;
+  justify-content: space-around;
 }
 
 .footer__lnk-social_style {
@@ -1200,22 +1202,22 @@ html.has-scroll-dragging {
 }
 
 .footer__lnk-social_position {
-  margin: 0 0 0 15px;
+  margin: 0;
 }
 
 .footer__lnk-chat {
   display: flex;
   grid-area: chat;
-  justify-content: flex-end;
+  justify-content: space-around;
+}
+
+.footer__lnk-chat_position {
+  margin: 0;
 }
 
 .footer__lnk-chat_style {
   color: var(--grey20);
   text-decoration: none;
-}
-
-.footer__lnk-chat_position {
-  margin: 0 0 0 15px;
 }
 
 .footer-lnk_style {
@@ -1311,11 +1313,15 @@ html.has-scroll-dragging {
   }
 
   .block-gap_size {
-    margin: 0 0 225px 0;
+    margin: 0 0 300px 0;
   }
 
   .block-gap-title_size {
-    margin: 140px 0 225px 0;
+    margin: 25vh 0 300px 0;
+  }
+
+  #btnwaves {
+    display: inline-block;
   }
 
   .aside {
@@ -1329,6 +1335,26 @@ html.has-scroll-dragging {
     ". . . . . . . ."
     ". . . . . . . ."
     ". . . place place . . .";
+  }
+
+  .footer__title_style {
+    text-align: left;
+  }
+
+  .footer__lnk-social {
+    justify-content: flex-end;
+  }
+
+  .footer__lnk-social_position {
+    margin: 0 0 0 15px;
+  }
+
+  .footer__lnk-chat {
+    justify-content: flex-end;
+  }
+
+  .footer__lnk-chat_position {
+    margin: 0 0 0 15px;
   }
 }
 

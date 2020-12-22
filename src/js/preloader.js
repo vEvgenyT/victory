@@ -1,11 +1,14 @@
 // -------------------- PRELOADER -------------------//
 
+
 window.onload = function() {
 
 
     noise();
     preloaderOut();
     initAnimation();
+    starterAnimation();
+    // startSound();
     setTimeout(offScroll, 2000);
 }
 
@@ -20,18 +23,4 @@ const preloaderOut = () => {
 
 }
 
-const preloaderIn = () => {
-  let preload = document.querySelector('.preloader');
 
-  const tl = gsap.timeline({})
-  .fromTo(preload, {
-    opacity: 0,
-    y: "150%",
-    ease: 'power2.inOut'
-  }, {
-    opacity: 1,
-    y: "0%",
-    duration: .15,
-    ease: 'power2.inOut'
-  })
-}

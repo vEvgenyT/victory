@@ -1,4 +1,46 @@
 // GSDevTools.create();
+
+function starterAnimation() {
+
+  Splitting();
+
+
+const tl = gsap.timeline()
+.add('start', .8)
+  .from(document.querySelector('[data-animation-canvas]'), {
+    y:"-30%",
+    opacity: 0,
+    duration: 1,
+    stagger: {
+      each: .05
+    }
+  }, "start")
+   .from(document.querySelector('[data-animation-start-header]'), {
+      y:"30%",
+      opacity: 0,
+      duration: .85,
+      stagger: {
+        each: .05
+      }
+    }, "start+=.75")
+    .from(document.querySelectorAll('[data-animation-start-subtitle] .char'), {
+      opacity: 0,
+      y: "80%",
+      duration: .65,
+      stagger: {
+        each: .0030
+      }
+    }, "start+=1.05")
+    .from(document.querySelectorAll('[data-animation-start-text] .char'), {
+      duration: .5,
+      y: "80%",
+      opacity: 0,
+      stagger: {
+        each: .0015
+     }
+  }, "start+=1.15")
+}
+
 function initAnimation() {
 gsap.registerPlugin(ScrollTrigger);
 Splitting();
@@ -7,7 +49,7 @@ Splitting();
 const locoScroll = new LocomotiveScroll({
   el: document.querySelector("[data-scroll-container]"),
   smooth: true,
-  lerp: .09
+  lerp: .05
 });
 
 
@@ -43,11 +85,11 @@ ScrollTrigger.scrollerProxy("[data-scroll-container]", {
       ease: "power2.Out",
       }
     })
-    .add('startPosition', .75)
+    .add('startPosition', 0)
     .from(item.querySelector('[data-animation-header]'), {
       y:"30%",
       opacity: 0,
-      duration: 1,
+      duration: .75,
       stagger: {
         each: .05
       }
@@ -61,15 +103,15 @@ ScrollTrigger.scrollerProxy("[data-scroll-container]", {
       }
     }, "startPosition+=.4")
     .from(item.querySelectorAll('[data-animation-text] .char'), {
-      duration: .45,
+      duration: .55,
       y: "80%",
       opacity: 0,
       stagger: {
-        each: .0015
+        each: .002
      }
   }, "startPosition+=.65")
   .from(item.querySelectorAll('[data-animation-folio]'), {
-    duration: 1,
+    duration: .85,
     y: "25%",
     opacity: 0,
     stagger: {
@@ -78,83 +120,30 @@ ScrollTrigger.scrollerProxy("[data-scroll-container]", {
     },
     ease: "back.inOut(1.7)"
   }, 0)
-  .from(item.querySelector('[data-animation-canvas]'), {
-    y:"-30%",
-    opacity: 0,
-    duration: 1.25,
-    stagger: {
-      each: .05
-    }
-  }, "startPosition+=1.5")
+  // .from(item.querySelector('[data-animation-canvas]'), {
+  //   y:"-30%",
+  //   opacity: 0,
+  //   duration: 1.25,
+  //   stagger: {
+  //     each: .05
+  //   }
+  // }, "startPosition+=1.5")
 
   ScrollTrigger.create({
     animation: tl,
     trigger: item,
-    start: "top center-=100px",
+    start: "top center-=150px",
   })
   })
-// };
 
 
 
-
-// const animationOut = function() {
-
-//   let section = document.querySelectorAll('[data-animation-section]');
-
-
-//   section.forEach(item => {
-
-//   const tlOut = gsap.timeline({
-//     defaults: {
-//       paused: true,
-//       ease: "power2.In",
-//     }
-//   })
-//   .add('startPosition', 0)
-//   .to(item.querySelectorAll('[data-animation-text] .char'), {
-//     duration: .15,
-//     y: "100%",
+// gsap.from(document.querySelector('[data-animation-canvas]'), {
+//     y:"-30%",
 //     opacity: 0,
-//     stagger: {
-//       each: .0015,
-//       from: "end"
-//     }
-//   }, 'startPosition')
-//   .to(item.querySelector('[data-animation-header]'), {
-//     y:"30%",
-//     opacity: 0,
-//     duration: .35,
-//     stagger: {
-//       each: .05
-//     }
-//   }, 'startPosition+=.5')
-//   .to(item.querySelectorAll('[data-animation-subtitle] .char'), {
-//     opacity: 0,
-//     y: "80%",
-//     duration: .25,
-//     stagger: {
-//       each: .0025,
-//       from: "end"
-//     }
-//   }, 'startPosition+=.05')
-
-//   ScrollTrigger.create({
-//     animation: tlOut,
-//     trigger: item,
-//     start: "top center",
-//   })
-
-// })
-// }
-
-
-gsap.from(document.querySelector('[data-animation-canvas]'), {
-    y:"-30%",
-    opacity: 0,
-    duration: 1.05,
-    ease: "back.inOut(1.7)"
-  }, .25)
+//     duration: 1.05,
+//     ease: "back.inOut(1.7)"
+//   }, .25)
 
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 ScrollTrigger.refresh();

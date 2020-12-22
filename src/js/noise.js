@@ -88,3 +88,9 @@ const noise = () => {
         setup();
     })();
 };
+
+
+
+window.addEventListener('resize', () => {
+   noise();
+})
