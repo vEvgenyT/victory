@@ -646,6 +646,10 @@ html.has-scroll-dragging {
   z-index: -100;
 }
 
+.object_about {
+  display: none;
+}
+
 .header__waves {
   list-style: none;
 }
@@ -686,10 +690,10 @@ html.has-scroll-dragging {
   background: #202020;
   bottom: 0;
   height: 100vh;
-  /*top: 0;*/
   left: 0;
   position: fixed;
   right: 0;
+  top: 0;
   width: 100vw;
   z-index: 19999;
 }
@@ -785,7 +789,7 @@ html.has-scroll-dragging {
 }
 
 .preload_out {
-  transform: translateY(-100vh);
+  transform: translateY(-200vh);
   transition: transform 1.75s cubic-bezier(.4,0,0,1);
 }
 
@@ -1192,7 +1196,7 @@ html.has-scroll-dragging {
 
 .footer__lnk-social {
   display: flex;
-  grid-area: social;
+  /*grid-area: social;*/
   justify-content: space-around;
 }
 
@@ -1207,7 +1211,7 @@ html.has-scroll-dragging {
 
 .footer__lnk-chat {
   display: flex;
-  grid-area: chat;
+  /*grid-area: chat;*/
   justify-content: space-around;
 }
 
@@ -1275,6 +1279,22 @@ html.has-scroll-dragging {
   color: var(--grey40);
   margin: 0 auto;
   grid-area: place;
+}
+
+.footer__lnk-chat_style {
+  list-style: none;
+}
+
+.footer__lnk-chat_position {
+  grid-area: chat;
+}
+
+.footer__lnk-social_style {
+  list-style: none;
+}
+
+.footer__lnk-social_position {
+  grid-area: social;
 }
 
 @media only screen and (min-width: 362px) {

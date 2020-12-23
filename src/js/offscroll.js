@@ -2,23 +2,23 @@
 
 function offScroll() {
   document.querySelector('body').classList.remove("preloader_srcoll-off");
-  // animationOut();
 
+
+
+sound.play();
+startSound();
+}
+
+function startSound() {
   if (!sound.isPlaying) {
+    waves.waves[0].amplitude = 0;
+} else {
   sound.play();
   waves.waves[0].amplitude = 22;
+
 }
 
-
-function startSound(event) {
-      if (!sound.isPlaying) {
-  sound.play();
-  waves.waves[0].amplitude = 22;
-}
-
-    target.removeEventListener("DOMContentLoaded", startSound);
+    // document.removeEventListener("DOMContentLoaded", startSound);
 };
 
-let target = document.querySelector("html");
-target.addEventListener("DOMContentLoaded", startSound);
-}
+// document.addEventListener("DOMContentLoaded", startSound);

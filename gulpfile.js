@@ -66,6 +66,7 @@ var path = {
         indexHtml: [
           'src/**/head.html',
           'src/**/header.html',
+          // 'src/**/headerabout.html',
           'src/**/index/**/title.html',
           'src/**/portfolio.html',
           'src/**/service.html',
@@ -75,7 +76,7 @@ var path = {
         ],
         aboutHtml: [
           'src/**/head.html',
-          'src/**/header.html',
+          'src/**/headerabout.html',
           'src/**/about/**/title.html',
           'src/**/footer.html',
         ],
