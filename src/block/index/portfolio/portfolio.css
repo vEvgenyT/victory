@@ -20,8 +20,13 @@
 }
 
 .index-folio__img_size {
-  max-height: 190px;
+  max-height: 180px;
   margin: 20px;
+}
+@media only screen and (min-width: 414px) {
+  .index-folio__img_size {
+    max-height: 190px;
+  }
 }
 @media only screen and (min-width: 1105px) {
   .index-folio__img_size {

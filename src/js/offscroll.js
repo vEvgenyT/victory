@@ -4,16 +4,16 @@ function offScroll() {
   document.querySelector('body').classList.remove("preloader_srcoll-off");
 
 
+checkSound();
 
-sound.play();
-startSound();
+
+
 }
 
-function startSound() {
+function checkSound() {
   if (!sound.isPlaying) {
     waves.waves[0].amplitude = 0;
 } else {
-  sound.play();
   waves.waves[0].amplitude = 22;
 
 }

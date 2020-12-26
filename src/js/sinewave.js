@@ -822,24 +822,47 @@ window.addEventListener('resize', () => {
 })
 
 
+const attract =
+  setInterval(() => {
+   if (!sound.isPlaying && waves.waves[0].amplitude == 0) {
+      waves.waves[0].amplitude = 22;
+      waves.waves[0].wavelength = 10;
+    }
+  }, 5000);
 
-if (!sound.isPlaying) {
-  waves.waves[0].amplitude = 0;
-}
+  setInterval(() => {
+    if (!sound.isPlaying && waves.waves[0].amplitude > 0) {
+      waves.waves[0].amplitude = 0;
+      waves.waves[0].wavelength = 10;
+    }
+  }, 5400);
+
+
+// attract();
+
+// if (!sound.isPlaying) {
+//   waves.waves[0].amplitude = 0;
+// }
 
 document.querySelector('#btnwaves').addEventListener('click', () => {
 
   let sines = waves.waves;
+  clearInterval(attract);
 
   if (sines[0].amplitude != 0 && sound.isPlaying) {
-    sines[0].amplitude = 0;
     sound.pause();
+    checkSound()
   } else {
-      sines[0].amplitude = 22;
       sound.play();
+      checkSound();
   }
 
 })
+
+
+
+
+
 
 
 

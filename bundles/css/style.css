@@ -638,7 +638,7 @@ html.has-scroll-dragging {
 
 .object {
   bottom: 0;
-  display: inline-block;
+  display: none;
   left: 0;
   position: absolute;
   right: 0;
@@ -1338,6 +1338,10 @@ html.has-scroll-dragging {
 
   .block-gap-title_size {
     margin: 25vh 0 300px 0;
+  }
+
+  .object {
+    display: inline-block;
   }
 
   #btnwaves {

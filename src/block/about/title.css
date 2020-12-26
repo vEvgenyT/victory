@@ -1,15 +1,21 @@
 .about {
   grid-template-areas:
+                        '. . . .'
+                        '. . . .'
+                        '. . . .'
+                        '. . . .'
+                        '. . . .'
                         'subtitle subtitle subtitle subtitle'
                         'item item item item';
 }
- @media only screen and (min-width: 412px) {
+/* @media only screen and (min-width: 412px) {
   .about {
   grid-template-areas:
+                        '. . . .'
                         'subtitle subtitle subtitle subtitle'
                         'item item item item';
 }
-}
+}*/
 
 @media only screen and (min-width: 745px) {
   .about {
@@ -77,13 +83,16 @@
 .about__item_position {}
 
 .about__img {
-  /*background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('https://images.unsplash.com/photo-1542190891-2093d38760f2?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80') no-repeat center 50%;*/
   background: url(../img/title-about_light.png) no-repeat center;
-  background-size: 50%;
+  background-size: 200%;
   height: 100vh;
 }
 
-
+@media only screen and (min-width: 745px) {
+  .about__img {
+    background-size: 50%;
+  }
+}
 
 
 
