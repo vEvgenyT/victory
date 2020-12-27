@@ -85,12 +85,13 @@
 .about__img {
   background: url(../img/title-about_light.png) no-repeat center;
   background-size: 200%;
-  height: 100vh;
+  /*height: 100vh;*/
 }
 
 @media only screen and (min-width: 745px) {
   .about__img {
     background-size: 50%;
+    height: 100vh;
   }
 }
 

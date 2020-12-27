@@ -828,14 +828,14 @@ const attract =
       waves.waves[0].amplitude = 22;
       waves.waves[0].wavelength = 10;
     }
-  }, 5000);
+  }, 7000);
 
   setInterval(() => {
     if (!sound.isPlaying && waves.waves[0].amplitude > 0) {
       waves.waves[0].amplitude = 0;
       waves.waves[0].wavelength = 10;
     }
-  }, 5400);
+  }, 7400);
 
 
 // attract();

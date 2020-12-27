@@ -229,7 +229,7 @@ gulp.task('/baseCss', ['/delcss'], function() {
     .pipe(prefixer())
     .pipe(csscomb())
     .pipe(gcmq())
-    // .pipe(postcss(processors))
+    .pipe(postcss(processors))
     .pipe(gulp.dest(path.bundles.css));
 });
 
@@ -243,7 +243,7 @@ gulp.task('/indexCss', function() {
     .pipe(prefixer())
     .pipe(csscomb())
     .pipe(gcmq())
-    // .pipe(postcss(processors))
+    .pipe(postcss(processors))
     .pipe(gulp.dest(path.bundles.css));
 });
 
@@ -258,7 +258,7 @@ gulp.task('/aboutCss', function() {
     .pipe(prefixer())
     .pipe(csscomb())
     .pipe(gcmq())
-    // .pipe(postcss(processors))
+    .pipe(postcss(processors))
     .pipe(gulp.dest(path.bundles.css));
 });
 

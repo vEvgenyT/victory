@@ -81,22 +81,24 @@
 
 .object {
   display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -100;
 }
 @media only screen and (min-width: 745px) {
   .object {
     display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -100;
   }
 }
+
+@media only screen and (min-width: 745px) {
 .object_about {
   display: none;
 }
-
+}
 
 .header__waves {
   list-style-type: none;
@@ -115,13 +117,13 @@ appearance: none;
     bottom: 25px;
     cursor: pointer;
     position: fixed;
-    display: none;
+    display: inline-block;
 }
-@media only screen and (min-width: 745px) {
+/*@media only screen and (min-width: 745px) {
 #btnwaves {
     display: inline-block;
 }
-}
+}*/
 
 
 
