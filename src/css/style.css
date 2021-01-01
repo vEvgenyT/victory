@@ -173,6 +173,8 @@ appearance: none;
 }
 .preloader__img_size {
   width: 100px;
+  /*height: 100px;*/
+  /*padding-top: 1%;*/
   margin: 0 0 75px 0;
 }
 
@@ -256,9 +258,8 @@ appearance: none;
 }
 .header__img_style {}
 .header__img_size {
-  height: 30px;
   mix-blend-mode: multiply;
-  /*width: 100%;*/
+  width: 30px;
 }
 .header__img_position {}
 
