@@ -717,9 +717,12 @@ appearance: none;
   margin: 0;
 }
 @media only screen and (min-width: 745px) {
-.footer__lnk-social_position {
-  margin: 0 0 0 15px;
-}
+  .footer__lnk-social_position {
+    margin: 0 0 0 25px;
+  }
+  .footer__lnk-social_position:first-child {
+    /*margin: 0;*/
+  }
 }
 
 
@@ -738,7 +741,7 @@ appearance: none;
 }
 @media only screen and (min-width: 745px) {
 .footer__lnk-chat_position {
-  margin: 0 0 0 15px;
+  margin: 0 0 0 25px;
 }
 }
 

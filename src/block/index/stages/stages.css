@@ -28,7 +28,9 @@
 .index-stages__title {
   grid-area: title;
 }
-.index-stages__title_size {}
+.index-stages__title_size {
+  height: 100%;
+}
 .index-stages__title_style-1 {
   background: linear-gradient(265deg, #F15B5B 20%, #3462ee 100%);
 }
