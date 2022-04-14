@@ -1,11 +1,11 @@
-// $$\    $$\$$$$$$\  $$$$$$\$$$$$$$$\  $$$$$$\  $$$$$$$\$$\     $$\ 
+// $$\    $$\$$$$$$\  $$$$$$\$$$$$$$$\  $$$$$$\  $$$$$$$\$$\     $$\
 // $$ |   $$ \_$$  _|$$  __$$\__$$  __|$$  __$$\ $$  __$$\$$\   $$  |
-// $$ |   $$ | $$ |  $$ /  \__| $$ |   $$ /  $$ |$$ |  $$ \$$\ $$  / 
-// \$$\  $$  | $$ |  $$ |       $$ |   $$ |  $$ |$$$$$$$  |\$$$$  /  
-//  \$$\$$  /  $$ |  $$ |       $$ |   $$ |  $$ |$$  __$$<  \$$  /   
-//   \$$$  /   $$ |  $$ |  $$\  $$ |   $$ |  $$ |$$ |  $$ |  $$ |    
-// $$\\$  /  $$$$$$\ \$$$$$$  | $$ |    $$$$$$  |$$ |  $$ |  $$ |    
-// \__|\_/   \______| \______/  \__|    \______/ \__|  \__|  \__|    
+// $$ |   $$ | $$ |  $$ /  \__| $$ |   $$ /  $$ |$$ |  $$ \$$\ $$  /
+// \$$\  $$  | $$ |  $$ |       $$ |   $$ |  $$ |$$$$$$$  |\$$$$  /
+//  \$$\$$  /  $$ |  $$ |       $$ |   $$ |  $$ |$$  __$$<  \$$  /
+//   \$$$  /   $$ |  $$ |  $$\  $$ |   $$ |  $$ |$$ |  $$ |  $$ |
+// $$\\$  /  $$$$$$\ \$$$$$$  | $$ |    $$$$$$  |$$ |  $$ |  $$ |
+// \__|\_/   \______| \______/  \__|    \______/ \__|  \__|  \__|
 
 
 var gulp = require('gulp'),
@@ -18,7 +18,7 @@ var gulp = require('gulp'),
     cssnano = require('cssnano'), // сжатие css файлов
     clear = require('del'), // очистка папок
     shorthand = require('gulp-shorthand'); //сокращение стилей для которых доступен shorthand
-const gcc = require('google-closure-compiler').gulp(); // оптимизация и сжатие JS кода
+//const gcc = require('google-closure-compiler').gulp(); // оптимизация и сжатие JS кода
 
 
 var folder = [
@@ -133,16 +133,16 @@ gulp.task('/js', async function() {
     "**/*.js"
   ], { base: './' }))
     .pipe(concat('index.js'))
-    .pipe(gcc({
-          compilation_level: 'ADVANCED',
-          warning_level: 'VERBOSE',
-          language_in: 'ECMASCRIPT6_STRICT',
-          language_out: 'ECMASCRIPT5_STRICT',
-          output_wrapper: '(function(){\n%output%\n}).call(this)',
-          js_output_file: 'index.min.js'
-        }, {
-          platform: ['native', 'java', 'javascript']
-        }))
+    // .pipe(gcc({
+    //       compilation_level: 'ADVANCED',
+    //       warning_level: 'VERBOSE',
+    //       language_in: 'ECMASCRIPT6_STRICT',
+    //       language_out: 'ECMASCRIPT5_STRICT',
+    //       output_wrapper: '(function(){\n%output%\n}).call(this)',
+    //       js_output_file: 'index.min.js'
+    //     }, {
+    //       platform: ['native', 'java', 'javascript']
+    //     }))
     .pipe(gulp.dest(path.bundles.js));
 });
 

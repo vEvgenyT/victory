@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortgage calculator</title>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+
+
+
+
+
+
+<div id="mortgageCalc">
+
+  <select v-model="selected">
+    <option value="">Выберите или создайте свой</option>
+    <option v-for="item in archive" :key="item">
+      {{item}}
+    </option>
+  </select>
+<span>Выбрано: {{ selected }}</span>
+
+
+
+  <h3>Сумма кредита, ₴:</h3>
+  <input v-model="borrow" type="range" min="0" max="1000000" value="0" step="50" id="range">{{borrow}}
+
+  <h3>Срок кредитования, лет:</h3>
+  <input v-model="term" type="range" min="0" max="10" value="0" step="1" id="range">{{term}}
+
+
+  <p>Первоначальный взнос, ₴: <input v-model="initialFee" v-bind:placeholder="creditAgreePlaceholder"> <span>{{creditAgree}}</span></p>
+
+
+  <section>
+    <h3>Расчёт ежемесячного платежа</h3>
+
+    <table>
+      <tr>
+        <td>Сумма кредитования</td>
+        <td>{{borrow}} ₴</td>
+      </tr>
+      <tr>
+        <td>Годовая процентная ставка</td>
+        <td>{{annualRate}} %</td>
+      </tr>
+      <tr>
+        <td>Первоначальный взнос</td>
+        <td>{{initialFee}} ₴</td>
+      </tr>
+      <tr>
+        <td>Ежемесячный платеж</td>
+        <td>{{mounthPayment}} ₴</td>
+      </tr>
+      <tr>
+        <td>Переплата по кредиту</td>
+        <td>{{overPayment}} ₴</td>
+      </tr>
+    </table>
+  </section>
+
+  <div>
+    <h3>Название шаблона: {{templateName}}</h3>
+    <input v-model="templateName" placeholder="введите название шаблона">
+    <button v-on:click="save">save</button>
+  </div>
+</div>
+
+
+
+
+
+
+<script src="js/index.js"></script>
+</body>
+</html>
